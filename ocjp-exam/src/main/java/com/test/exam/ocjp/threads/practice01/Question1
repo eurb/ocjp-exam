@@ -1,5 +1,6 @@
+
 The following block of code creates a Thread using a Runnable target:
-Runnable target = new MyRunnable();
+Runnable target = new MyRunnable(); 
 Thread myThread = new Thread(target);
 Which of the following classes can be used to create the target, so that the preceding code compiles correctly?
 	A. public class MyRunnable extends Runnable{public void run(){}}
