@@ -1,5 +1,4 @@
 ### Threads Notes
-https://www.ilovepdf.com/es/descargar/d3054a0317c27a8d1571092b1ee73fd5_20cffc4e48b3aad40638d82f3b0a0a1d
 
 1. So what exactly is a thread? In Java, "thread" means two different things:
     * An instance of class java.lang.Thread
