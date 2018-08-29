@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C:\Users\eroman\workspace-sts-3.9.4.RELEASE\ocjp-exam\src\main\java\com\test\exam\pcj2\threads\.Threads.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	background: transparent;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0 none;
+	text-decoration: underline;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+mark {
+	background: #ff0;
+	color: #000;
+}
+small {
+	font-size: 80%;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+img {
+	border: 0 none;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+figure {
+	margin: 1em 40px;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+pre {
+	overflow: auto;
+	font: 12px Consolas,"Liberation Mono",Menlo,Courier,monospace;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.markdown-body {
+	padding: 30px;
+	font-size: 16px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body .absent {
+	color: #c00;
+}
+
+.markdown-body .anchor {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	position: relative;
+	margin-top: 1em;
+	margin-bottom: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	display: none;
+	color: #000;
+	vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+	font-size: inherit;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+}
+
+.markdown-body h4 {
+	font-size: 1.25em;
+}
+
+.markdown-body h5 {
+	font-size: 1em;
+}
+
+.markdown-body h6 {
+	font-size: 1em;
+	color: #777;
+}
+
+.markdown-body p,.markdown-body blockquote,
+.markdown-body ul,.markdown-body ol,
+.markdown-body dl,.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+	padding: 0 15px;
+	color: #777;
+	border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+
+.markdown-body table th {
+	font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.markdown-body span.frame {
+	display: block;
+	overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+	display: block;
+	float: left;
+	width: auto;
+	padding: 7px;
+	margin: 13px 0 0;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.markdown-body span.frame span img {
+	display: block;
+	float: left;
+}
+
+.markdown-body span.frame span span {
+	display: block;
+	padding: 5px 0 0;
+	clear: both;
+	color: #333;
+}
+
+.markdown-body span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-center>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.markdown-body span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.markdown-body span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-right>span {
+	display: block;
+	margin: 13px 0 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+
+.markdown-body span.float-left {
+	display: block;
+	float: left;
+	margin-right: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+	margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+	display: block;
+	float: right;
+	margin-left: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body code,.markdown-body tt {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+	display: none;
+}
+
+.markdown-body del code {
+	text-decoration: inherit;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+	content: normal;
+}
+
+.highlight .pl-coc,
+.highlight .pl-entl,
+.highlight .pl-entm,
+.highlight .pl-eoa,
+.highlight .pl-mai .pl-sf,
+.highlight .pl-mm,
+.highlight .pl-pdv,
+.highlight .pl-sc,
+.highlight .pl-som,
+.highlight .pl-sr,
+.highlight .pl-v,
+.highlight .pl-vpf {
+	color: #0086b3;
+}
+.highlight .pl-eoac,
+.highlight .pl-mdht,
+.highlight .pl-mi1,
+.highlight .pl-mri,
+.highlight .pl-va,
+.highlight .pl-vpu {
+	color: #008080;
+}
+.highlight .pl-c,
+.highlight .pl-pdc {
+	color: #b4b7b4;
+	font-style: italic;
+}
+.highlight .pl-k,
+.highlight .pl-ko,
+.highlight .pl-kolp,
+.highlight .pl-mc,
+.highlight .pl-mr,
+.highlight .pl-ms,
+.highlight .pl-s,
+.highlight .pl-sok,
+.highlight .pl-st {
+	color: #6e5494;
+}
+.highlight .pl-ef,
+.highlight .pl-enf,
+.highlight .pl-enm,
+.highlight .pl-entc,
+.highlight .pl-eoi,
+.highlight .pl-sf,
+.highlight .pl-smc {
+	color: #d12089;
+}
+.highlight .pl-ens,
+.highlight .pl-eoai,
+.highlight .pl-kos,
+.highlight .pl-mh .pl-pdh,
+.highlight .pl-mp,
+.highlight .pl-pde,
+.highlight .pl-stp {
+	color: #458;
+}
+.highlight .pl-enti {
+	color: #d12089;
+	font-weight: bold;
+}
+.highlight .pl-cce,
+.highlight .pl-enc,
+.highlight .pl-kou,
+.highlight .pl-mq {
+	color: #f93;
+}
+.highlight .pl-mp1 .pl-sf {
+	color: #458;
+	font-weight: bold;
+}
+.highlight .pl-cos,
+.highlight .pl-ent,
+.highlight .pl-md,
+.highlight .pl-mdhf,
+.highlight .pl-ml,
+.highlight .pl-pdc1,
+.highlight .pl-pds,
+.highlight .pl-s1,
+.highlight .pl-scp,
+.highlight .pl-sol {
+	color: #df5000;
+}
+.highlight .pl-c1,
+.highlight .pl-cn,
+.highlight .pl-pse,
+.highlight .pl-pse .pl-s2,
+.highlight .pl-vi {
+	color: #a31515;
+}
+.highlight .pl-mb,
+.highlight .pl-pdb {
+	color: #df5000;
+	font-weight: bold;
+}
+.highlight .pl-mi,
+.highlight .pl-pdi {
+	color: #6e5494;
+	font-style: italic;
+}
+.highlight .pl-ms1 {
+	background-color: #f5f5f5;
+}
+.highlight .pl-mdh,
+.highlight .pl-mdi {
+	font-weight: bold;
+}
+.highlight .pl-mdr {
+	color: #0086b3;
+	font-weight: bold;
+}
+.highlight .pl-s2 {
+	color: #333;
+}
+.highlight .pl-ii {
+	background-color: #df5000;
+	color: #fff;
+}
+.highlight .pl-ib {
+	background-color: #f93;
+}
+.highlight .pl-id {
+	background-color: #a31515;
+	color: #fff;
+}
+.highlight .pl-iu {
+	background-color: #b4b7b4;
+}
+.highlight .pl-mo {
+	color: #969896;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h3> <a id="threads-notas" class="anchor" href="#threads-notas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Threads Notas</h3> 
+<ol> 
+ <li> <p>El paquete java.lang incluye dos elementos para la creaci&oacute;n de apliaciones multitarea en java: La clase <strong>Thread</strong> y la interfaz <strong>Runnable</strong>. Mediante &eacute;stos, disponemos de de dos caminos alternativos a la hora de implementar una aplicaci&oacute;n multitarea:</p> 
+  <ul> 
+   <li>Heredar de de la clase Thread</li> 
+   <li>Implementar de la interfaz Runnable</li> 
+  </ul> </li> 
+ <li> <h5> <a id="heredar-de-la-clase-thread" class="anchor" href="#heredar-de-la-clase-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Heredar de la clase <em>Thread</em> </h5> <p>Si usamos el m&eacute;todo de heredar de la clase Thread, entonces la craci&oacute;n y ejecuci&oacute;n de tareas en modo multitarea utilzando este m&eacute;todo requeire la realiaci&oacute;n de los siguientes pasos:</p> 
+  <ul> 
+   <li>Sobreescritura del m&eacute;todo <em>run()</em> de la clase Thread</li> 
+   <li>Creaci&oacute;n y ejecuci&oacute;n de las tareas.</li> 
+  </ul> </li> 
+ <li> <p>Cuando se crea un objeto thread &eacute;ste pasa al estado de &quot;nuevo&quot;, pero a&uacute;n no se produce la ejecuci&oacute;n de la tarea asociada. Para que esto suceda habr&aacute; que invocar explicitamente al m&eacute;todo <em>start()</em> de cada objeto Thread.</p> </li> 
+ <li> <p>El m&eacute;todo <em>start()</em> se encuentra definido en la clase Thread, la llamada a este m&eacute;todo <em>start()</em> provoca que el <em>thread</em> pase al estado de &quot;preparado&quot;. En esta situaci&oacute;n el gestor de tareas de la JVM (<em>thread scheduler</em>) podr&aacute;, en cualquier momento, elegir la tarea para su ejecuci&oacute;n invocando al m&eacute;todo <em>run()</em> del objeto.</p> </li> 
+ <li> <p>Todas las tareas que esten en estado &quot;preparado&quot;, estar&aacute;n listas para su ejecuci&oacute;n. siendo responsabilidad del <em>gestor de tareas</em> (<em>thread scheduler</em>) el reparto del tiempo de la CPU entre cada una de ellas y el orden de ejecuci&oacute;n de las mismas. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.extend</em></strong></p> </li> 
+ <li> <h5> <a id="m&eacute;todos-para-el-control-de-threads" class="anchor" href="#m%C3%A9todos-para-el-control-de-threads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M&eacute;todos para el control de threads</h5> 
+  <ol> 
+   <li> <h6> <a id="el-m&eacute;todo-sleep" class="anchor" href="#el-m%C3%A9todo-sleep" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>El m&eacute;todo <em>sleep()</em> </h6> <p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.extend.sleep</em></strong></p> 
+    <ul> 
+     <li>Su formato es el siguiente:</li> 
+    </ul> 
+    <div class="highlight highlight-source-java">
+     <pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> sleep(<span class="pl-k">long</span> tiempo) throws <span class="pl-smi">InterruptedException</span></pre>
+    </div> <p>Se trata de un m&eacute;todo est&aacute;tico que, al ser invocado, pone a &quot;dormir&quot; el <em>thread</em> en ejecuci&oacute;n durante los milisegundos especificados en el argumento. Mientras el <em>thead</em> est&aacute; dormido no podr&aacute; ser puesto en ejecuci&oacute;n por el gestor de tareas, hasta que, una vez transcurrido el per&iacute;odo de descanso, vuelva al estado de &quot;preparado&quot;</p> </li> 
+   <li> <h6> <a id="nombre-de-un-thread" class="anchor" href="#nombre-de-un-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nombre de un Thread</h6> <p>La clase Thread dispone de m&eacute;todos para establecer y obtener el nombre de un thread:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>	<span class="pl-k">public</span> <span class="pl-k">void</span> setName(<span class="pl-smi">String</span> nombre)
+	<span class="pl-k">public</span> <span class="pl-smi">String</span> getName()</pre>
+    </div> <p>Tambien se puede establecer el nombre de un <em>thread</em> cuando se crea utlizando el siguiente constructor:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> Thread(<span class="pl-smi">String</span> nombre)</pre>
+    </div> </li> 
+   <li> <h6> <a id="obtener-el-thread-en-ejecuci&oacute;n" class="anchor" href="#obtener-el-thread-en-ejecuci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtener el Thread en ejecuci&oacute;n</h6> <p>La clase Thred dispone de un m&eacute;todo est&aacute;tico <em>currentThread()</em> que permite obtener una referencia al thread actual en ejecuci&oacute;n su formato es:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> <span class="pl-k">static</span>  <span class="pl-smi">Thread</span> currentThread()</pre>
+    </div> <p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.extend.currentThread</em></strong></p> </li> 
+   <li> <h6> <a id="prioridad-de-un-thread" class="anchor" href="#prioridad-de-un-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prioridad de un thread</h6> <p>La prioridad de un <em>thread</em> es un factor importante a tener en cuenta por el gestor de tareas a la hora de repartir la CPU entre las mismas. De forma predeterminada, todo <em>thread</em> tiene asignada una prioridad al moment ode su creaci&oacute;n, la cual es la misma que la del <em>thread</em> que lo crea. Es posible establecer explicitamente una prioridad a una tarea mediante el m&eacute;todo <em>setPriority()</em> de la clase Thread, su formato es:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> <span class="pl-k">void</span> setPriority(<span class="pl-k">int</span> p)</pre>
+    </div> <p>Donde el argumento del m&eacute;todo representa la prioridad establecida y cuyo valor puede ser cualquier entero entre el 1 y 10 (1 prioridad m&iacute;nima, 10 prioridad m&aacute;xima).</p> </li> 
+   <li> <h6> <a id="el-m&eacute;todo-yield" class="anchor" href="#el-m%C3%A9todo-yield" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>El m&eacute;todo yield()</h6> <p>Lo que hace este m&eacute;todo es devolver el <em>thread</em> en ejecuci&oacute;n al estado de &quot;preparado&quot;, poniendo en ejecuci&oacute;n otro thred de su misma prioridad. su formato es:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> yield()</pre>
+    </div> </li> 
+   <li> <h6> <a id="el-m&eacute;todo-join" class="anchor" href="#el-m%C3%A9todo-join" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>El m&eacute;todo join()</h6> <p>Se utiliza para unir un <em>thread</em> con el final de otro <em>thread</em> de modo que el thread primero quedar&aacute; bloqueado en el estado &quot;preparado&quot; hasta que finalice la ejecuci&oacute;n del <em>thread</em> con el que se ha enlazado, El formato es:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>   <span class="pl-k">public</span> <span class="pl-k">void</span> join() throws <span class="pl-smi">InterruptedException</span></pre>
+    </div> <p>Si &quot;A&quot; es un objeto <em>thread</em>, el thread que ejecute la instrucci&oacute;n:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>   <span class="pl-smi">A</span><span class="pl-k">.</span>join();</pre>
+    </div> <p>pasar&aacute; al estado &quot;preparado&quot; hasta que finalize la tarea &quot;A&quot;.</p> </li> 
+  </ol> </li> 
+ <li> <h5> <a id="estados-de-un-thread" class="anchor" href="#estados-de-un-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Estados de un <em>thread</em> </h5> <p>Un <em>thread</em> puede encontrarse en uno de los siguientes estados:</p> 
+  <ul> 
+   <li> <p><strong><em>Nuevo.</em></strong> El <em>thread</em> entra en este estado al crear la instancia de la clase Thread asociada, permaneciendo en &eacute;l hasta que se produzca la llamada a <em>start()</em>. Un <em>thread</em> en el estado &quot;nuevo&quot; a&uacute;n no se considera vivo.</p> </li> 
+   <li> <p><strong><em>Preparado.</em></strong> Un <em>thread</em> entra en este estado al invocar al m&eacute;todo <em>start()</em>, aunque tambi&eacute;n puede regresar a &eacute;l despu&eacute;s de haber estado en ejecuci&oacute;n, dormido o bloqueado. Un <em>thread</em> en estado &quot;preparado&quot; ya se considera vivo.</p> </li> 
+   <li> <p><strong><em>Ejecuci&oacute;n.</em></strong> El <em>thread</em> entra en este estado cuando el <em>sheduler</em> lo selecciona para su ejecuci&oacute;n.</p> </li> 
+   <li> <p><strong><em>Esperando/bloqueado/dormido.</em></strong> Son tres estados combinados en uno y se caracterizan porque el <em>thread</em> a&uacute;n esta vivo pero no preparado, pudiendo estar dormido, bloqueado, a la espera de alg&uacute;n recurso o en espera.</p> </li> 
+   <li> <p><strong><em>Finalizado.</em></strong> Un <em>thread</em> se considera que ha finalizado cuando termina la ejecuci&oacute;n de su m&eacute;todo <em>run()</em>. <strong>Una vez que el <em>thread</em> finaliza no puede volver de nuevo al estado preparado</strong>, por ello, si se invoca al m&eacute;todo <em>start()</em> por seguna vez sobre un <em>thread</em> <strong>se producir&aacute; una excepci&oacute;n</strong> de tipo IllegalThreadStateException.</p> </li> 
+  </ul> </li> 
+ <li> <h5> <a id="implementar-de-la-interfaz-runnable" class="anchor" href="#implementar-de-la-interfaz-runnable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementar de la interfaz <em>Runnable</em> </h5> <p>Es la m&aacute;s com&uacute;n y la que mas se utiliza en lugar de heredar de la clase <em>Thread</em>. Si optamos por esta via las acciones que tenemos que llevar acabo ser&aacute;n:</p> 
+  <ul> 
+   <li>Implementar el m&eacute;todo <em>run()</em> de la interfaz <em>Runnable</em> </li> 
+   <li>Creaci&oacute;n y ejecuci&oacute;n de tareas</li> 
+  </ul> <p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.implement</em></strong></p> 
+  <ol> 
+   <li> <h6> <a id="creaci&oacute;n-y-ejecuci&oacute;n-de-tareas" class="anchor" href="#creaci%C3%B3n-y-ejecuci%C3%B3n-de-tareas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creaci&oacute;n y ejecuci&oacute;n de tareas</h6> <p>Toda tarea en ejecuci&oacute;n es un thread. Esto significa que habrpa que crear <strong>tantos objetos de la clase Thread como tareas queramos poner en ejecuci&oacute;n</strong></p> <p>Para crear objetos Thread debemos usar alguno de los siguientes constructores de la clase Thread:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    Thread(<span class="pl-smi">Runnable</span> obj)</pre>
+    </div> 
+    <div class="highlight highlight-source-java">
+     <pre>   Thread(<span class="pl-smi">Runnable</span> obj, <span class="pl-smi">String</span> nombre)</pre>
+    </div> </li> 
+  </ol> </li> 
+ <li> <h5> <a id="sincronizaci&oacute;n-y-monitores" class="anchor" href="#sincronizaci%C3%B3n-y-monitores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sincronizaci&oacute;n y monitores</h5> <p>La sincronizaci&oacute;n de un bloque de c&oacute;digo consiste en impedir la entrada de un <em>thread</em> al bloque hasta que el &uacute;ltimo thread en entrar a ducho bloque finalice la ejecuci&oacute;n del mismo, de esta forma se garantiza que todas las instrucciones del bloque son ejecutadas completamente por un <em>thread</em> antes de que otro entre en el mismo.</p> <p>La sincronizaci&oacute;n de bloques de cpodigo se basa en el uso de monitores o <em>&quot;cerrojos&quot;</em>. Todo objeto lleva asociado un monitor, el cual puede ser adquirido por un &uacute;nico <em>thread</em>. Cuando se sincroniza un bloque de c&oacute;digo, es neceario indicar el objeto cuyo monitor ser&aacute; utilizado para controlar el proceso de sincronizaci&oacute;n de la sigiente forma:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">synchronized</span>(ref_objeto) 
+    {
+        <span class="pl-c"><span class="pl-c">//</span>bloque de instrucciones a sincronizar</span>
+    }</pre>
+  </div> <p>En el momento en que un <em>thread</em> entra en un bloque sincronizado, adquiere el monitor del objeto especificado, bloquendo la entrada de otros <em>threads</em> al bloque hata que el monitor del objeto sea liberado,, hecho que sucede autom&aacute;ticamente cunado el <em>thread</em> finaliza la ejecuci&oacute;n del bloque sincronizado. A partir de este instante, el monitor del objeto queda libre y cualquier <em>thread</em> que este a la espera de entrar en el bloque sincronizado puede adquirirlo. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.syncronized</em></strong></p> </li> 
+ <li> <h5> <a id="m&eacute;todos-de-comunicaci&oacute;n-de-la-clase-object" class="anchor" href="#m%C3%A9todos-de-comunicaci%C3%B3n-de-la-clase-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M&eacute;todos de comunicaci&oacute;n de la clase Object</h5> <p>Existen tres m&eacute;todos en la clase object que permiten enviar se&ntilde;ales de unos <em>threds</em> a otros, cuando estos est&aacute;n ejecutando bloques de c&oacute;digo <em>synchronized</em>, condicionando la ejecuci&oacute;n de uno de estos bloques a la del otro. Estos m&eacute;todos son <strong>invocado en el interior de un bloque <em>synchronized</em></strong> sobre el objeto del que se adquiere el monitor los m&eacute;todos son:</p> 
+  <ul> 
+   <li> <p><strong>wait().</strong> Cuando un thread invoca a este m&eacute;todo sobre un objeto, libera el monitor del mismo, y pasa al estado de &quot;esperando&quot;, estado en el que permanecer&aacute; hasta que reciba una se&ntilde;al por parte del <em>thread</em> que en ese momento tenga el monitor del objeto para poder continuar con su ejecuci&oacute;n la sintaxis es:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span> wait() throws <span class="pl-smi">InterruptedException</span></pre>
+    </div> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span>  wait(<span class="pl-k">int</span> milisegundos) throws <span class="pl-smi">InterruptedException</span></pre>
+    </div> <p>Si transcurrido ese tiempo el <em>thread</em> no h recibido una se&ntilde;al para salir del estado de espera, autom&aacute;ticamente pasa a &quot;preparado&quot;.</p> </li> 
+   <li> <p><strong>notify().</strong> Al invocarlo se env&iacute;a una se&ntilde;al al <em>thread</em> que hizo la llamada a <em>wait()</em> sobre el objeto. A partir de este momento, el <em>thread</em> podr&aacute; continuar su ejecuci&oacute;n, pasando al estado de &quot;preparado&quot;.</p> </li> 
+   <li> <p><strong>notifyAll().</strong> Si hay varios threads que han invocado al m&eacute;todo <em>wait()</em> sobre el objeto, la llamada a <em>notify()</em> afectar&aacute; solamente a uno de ellos. Para notificar a todos los <em>threads</em> que estan a la espera se utiliza <em>notifyAll()</em>. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.comunication</em></strong></p> </li> 
+  </ul> </li> 
+</ol>
+</body>
+</html>

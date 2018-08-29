@@ -1,0 +1,85 @@
+Assume you have a class that holds two private variables: a and b. Which of the following
+pairs can prevent concurrent access problems in that class? (Choose all that apply.)
+	A. public int read(){return a+b;}
+		public void set(int a, int b){this.a=a;this.b=b;}
+	B. public synchronized int read(){return a+b;}
+		public synchronized void set(int a, int b){this.a=a;this.b=b;}
+	C. public int read(){synchronized(a){return a+b;}}
+		public void set(int a, int b){synchronized(a){this.a=a;this.b=b;}}
+	D. public int read(){synchronized(a){return a+b;}}
+		public void set(int a, int b){synchronized(b){this.a=a;this.b=b;}}
+	E. public synchronized(this) int read(){return a+b;}
+		public synchronized(this) void set(int a, int b){this.a=a;this.b=b;}
+	F. public int read(){synchronized(this){return a+b;}}
+		public void set(int a, int b){synchronized(this){this.a=a;this.b=b;}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+Answer:
+	B and F are correct. By marking the methods as synchronized, the threads 
+	will get the lock of the this object before proceeding. Only one thread will be setting 
+	or reading at any given moment, thereby assuring that read() always returns the addition of a valid pair.
+	
+	A is incorrect because it is not synchronized; therefore, there is no guarantee that the values 
+	added by the read() method belong to the same pair. C and D are incorrect; 
+	only objects can be used to synchronize on. E fails— it is not possible to select 
+	other objects (even this) to synchronize on when declaring a method as synchronized. (Obj. 4.3)
+	
+	
+	
+	
+	
+	
+Mi explicación
+	Analizando las opciones:
+	A. no es correcto ya que no esta siendo sinronizado no hay mas.
+	
+	C y D estan intentando sincronizar un Int, pero para obetner el lock de un objeto este debe ser un onbejto
+		y no un primitivo.
+		
+	E es incorrecto esa sintaxys no esta permitida
+	
+	B y F son las correctas ya que con B lso métodos son marcados como synchronized, entonces el thread obtiene
+		el log de ese objeto antes de preoceder a sumar los vaores, la F es correcta esa sintaxis bloquea el objeto
+		actual con this.

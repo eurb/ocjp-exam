@@ -1,0 +1,917 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C:\Users\eroman\workspace-sts-3.9.4.RELEASE\ocjp-exam\src\main\java\com\test\exam\ocjp\threads\.Threads.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	background: transparent;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0 none;
+	text-decoration: underline;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+mark {
+	background: #ff0;
+	color: #000;
+}
+small {
+	font-size: 80%;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+img {
+	border: 0 none;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+figure {
+	margin: 1em 40px;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+pre {
+	overflow: auto;
+	font: 12px Consolas,"Liberation Mono",Menlo,Courier,monospace;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.markdown-body {
+	padding: 30px;
+	font-size: 16px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body .absent {
+	color: #c00;
+}
+
+.markdown-body .anchor {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	position: relative;
+	margin-top: 1em;
+	margin-bottom: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	display: none;
+	color: #000;
+	vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+	font-size: inherit;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+}
+
+.markdown-body h4 {
+	font-size: 1.25em;
+}
+
+.markdown-body h5 {
+	font-size: 1em;
+}
+
+.markdown-body h6 {
+	font-size: 1em;
+	color: #777;
+}
+
+.markdown-body p,.markdown-body blockquote,
+.markdown-body ul,.markdown-body ol,
+.markdown-body dl,.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+	padding: 0 15px;
+	color: #777;
+	border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+
+.markdown-body table th {
+	font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.markdown-body span.frame {
+	display: block;
+	overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+	display: block;
+	float: left;
+	width: auto;
+	padding: 7px;
+	margin: 13px 0 0;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.markdown-body span.frame span img {
+	display: block;
+	float: left;
+}
+
+.markdown-body span.frame span span {
+	display: block;
+	padding: 5px 0 0;
+	clear: both;
+	color: #333;
+}
+
+.markdown-body span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-center>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.markdown-body span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.markdown-body span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-right>span {
+	display: block;
+	margin: 13px 0 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+
+.markdown-body span.float-left {
+	display: block;
+	float: left;
+	margin-right: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+	margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+	display: block;
+	float: right;
+	margin-left: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body code,.markdown-body tt {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+	display: none;
+}
+
+.markdown-body del code {
+	text-decoration: inherit;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+	content: normal;
+}
+
+.highlight .pl-coc,
+.highlight .pl-entl,
+.highlight .pl-entm,
+.highlight .pl-eoa,
+.highlight .pl-mai .pl-sf,
+.highlight .pl-mm,
+.highlight .pl-pdv,
+.highlight .pl-sc,
+.highlight .pl-som,
+.highlight .pl-sr,
+.highlight .pl-v,
+.highlight .pl-vpf {
+	color: #0086b3;
+}
+.highlight .pl-eoac,
+.highlight .pl-mdht,
+.highlight .pl-mi1,
+.highlight .pl-mri,
+.highlight .pl-va,
+.highlight .pl-vpu {
+	color: #008080;
+}
+.highlight .pl-c,
+.highlight .pl-pdc {
+	color: #b4b7b4;
+	font-style: italic;
+}
+.highlight .pl-k,
+.highlight .pl-ko,
+.highlight .pl-kolp,
+.highlight .pl-mc,
+.highlight .pl-mr,
+.highlight .pl-ms,
+.highlight .pl-s,
+.highlight .pl-sok,
+.highlight .pl-st {
+	color: #6e5494;
+}
+.highlight .pl-ef,
+.highlight .pl-enf,
+.highlight .pl-enm,
+.highlight .pl-entc,
+.highlight .pl-eoi,
+.highlight .pl-sf,
+.highlight .pl-smc {
+	color: #d12089;
+}
+.highlight .pl-ens,
+.highlight .pl-eoai,
+.highlight .pl-kos,
+.highlight .pl-mh .pl-pdh,
+.highlight .pl-mp,
+.highlight .pl-pde,
+.highlight .pl-stp {
+	color: #458;
+}
+.highlight .pl-enti {
+	color: #d12089;
+	font-weight: bold;
+}
+.highlight .pl-cce,
+.highlight .pl-enc,
+.highlight .pl-kou,
+.highlight .pl-mq {
+	color: #f93;
+}
+.highlight .pl-mp1 .pl-sf {
+	color: #458;
+	font-weight: bold;
+}
+.highlight .pl-cos,
+.highlight .pl-ent,
+.highlight .pl-md,
+.highlight .pl-mdhf,
+.highlight .pl-ml,
+.highlight .pl-pdc1,
+.highlight .pl-pds,
+.highlight .pl-s1,
+.highlight .pl-scp,
+.highlight .pl-sol {
+	color: #df5000;
+}
+.highlight .pl-c1,
+.highlight .pl-cn,
+.highlight .pl-pse,
+.highlight .pl-pse .pl-s2,
+.highlight .pl-vi {
+	color: #a31515;
+}
+.highlight .pl-mb,
+.highlight .pl-pdb {
+	color: #df5000;
+	font-weight: bold;
+}
+.highlight .pl-mi,
+.highlight .pl-pdi {
+	color: #6e5494;
+	font-style: italic;
+}
+.highlight .pl-ms1 {
+	background-color: #f5f5f5;
+}
+.highlight .pl-mdh,
+.highlight .pl-mdi {
+	font-weight: bold;
+}
+.highlight .pl-mdr {
+	color: #0086b3;
+	font-weight: bold;
+}
+.highlight .pl-s2 {
+	color: #333;
+}
+.highlight .pl-ii {
+	background-color: #df5000;
+	color: #fff;
+}
+.highlight .pl-ib {
+	background-color: #f93;
+}
+.highlight .pl-id {
+	background-color: #a31515;
+	color: #fff;
+}
+.highlight .pl-iu {
+	background-color: #b4b7b4;
+}
+.highlight .pl-mo {
+	color: #969896;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h3> <a id="threads-notes" class="anchor" href="#threads-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Threads Notes</h3> 
+<p><a href="https://www.ilovepdf.com/es/descargar/d3054a0317c27a8d1571092b1ee73fd5_20cffc4e48b3aad40638d82f3b0a0a1d" rel="nofollow">https://www.ilovepdf.com/es/descargar/d3054a0317c27a8d1571092b1ee73fd5_20cffc4e48b3aad40638d82f3b0a0a1d</a></p> 
+<ol> 
+ <li> <p>So what exactly is a thread? In Java, &quot;thread&quot; means two different things:</p> 
+  <ul> 
+   <li>An instance of class java.lang.Thread</li> 
+   <li>A thread of execution</li> 
+  </ul> </li> 
+ <li> <h5> <a id="extending-javalangthread" class="anchor" href="#extending-javalangthread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Extending java.lang.Thread</strong> </h5> <p>The simplest way to define code to run in a separate thread is to</p> 
+  <ul> 
+   <li>Extend the java.lang.Thread class.</li> 
+   <li>Override the run() method.</li> 
+  </ul> <p>It looks like this:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">class</span> <span class="pl-en">MyThread</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Important job running in MyThread<span class="pl-pds">&quot;</span></span>);
+        }
+    }</pre>
+  </div> <p>The limitation with this approach (besides being a poor design choice in most cases) is that if you extend Thread, you can't extend anything else</p> <p>Keep in mind that you're free to overload the run() method in your Thread subclass:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-k">class</span> <span class="pl-en">MyThread</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Important job running in MyThread<span class="pl-pds">&quot;</span></span>);
+            }
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>(<span class="pl-smi">String</span> <span class="pl-v">s</span>) {
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>String in run is <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> s);
+            }
+        }</pre>
+  </div> <p>But know this: The overloaded run(String s) method will be ignored by the Thread class unless you call it yourself. The Thread class expects a run() method with no arguments, and it will execute this method for you in a separate call stack after the thread has been started. With a run(String s) method, the Thread class won't call the method for you, and even if you call the method directly yourself, execution won't happen in a new thread of execution with a separate call stack. It will just happen in the same call stack as the code that you made the call from, just like any other normal method call.</p> </li> 
+ <li> <h5> <a id="implementing-javalangrunnable" class="anchor" href="#implementing-javalangrunnable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Implementing java.lang.Runnable</strong> </h5> <p>Implementing the Runnable interface gives you a way to extend from any class you like, but still define behavior that will be run by a separate thread. It looks like this:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">class</span> <span class="pl-en">MyRunnable</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Important job running in MyRunnable<span class="pl-pds">&quot;</span></span>);
+        }
+    }</pre>
+  </div> <p>Regardless of which mechanism you choose, you've now got yourself some code that can be run by a thread of execution.</p> </li> 
+ <li> <h5> <a id="instantiating-a-thread" class="anchor" href="#instantiating-a-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Instantiating a Thread</strong> </h5> <p>Regardless of whether your run() method is in a Thread subclass or a Runnable implementation class, you still need a Thread object to do the work.</p> <p>If you extended the Thread class, instantiation is dead simple:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">MyThread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyThread</span>()</pre>
+  </div> <p>If you implement Runnable, instantiation is only slightly less simple (Another common way to think about this is that the Thread is the &quot;worker,&quot; and the Runnable is the &quot;job&quot; to be done.). First, you instantiate your Runnable class:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">MyRunnable</span> r <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyRunnable</span>();</pre>
+  </div> <p>Next, you get yourself an instance of java.lang.Thread (somebody has to run your job…), and you give it your job!</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(r); <span class="pl-c"><span class="pl-c">//</span> Pass your Runnable to the Thread</span></pre>
+  </div> <p>If you create a thread using the no-arg constructor, the thread will call its own run() method when it's time to start working. That's exactly what you want when you extend Thread, but when you use Runnable, you need to tell the new thread to use your run()method rather than its own. The Runnable you pass to the Thread constructor is called the target or the target Runnable.</p> <p>You can pass a single Runnable instance to multiple Thread objects, so that the same Runnable becomes the target of multiple threads, as follows:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TestThreads</span> {
+            <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-smi">String</span> [] <span class="pl-v">args</span>) {
+                <span class="pl-smi">MyRunnable</span> r <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyRunnable</span>();
+                <span class="pl-smi">Thread</span> foo <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(r);
+                <span class="pl-smi">Thread</span> bar <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(r);
+                <span class="pl-smi">Thread</span> bat <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(r);
+            }
+        }</pre>
+  </div> <p>Giving the same target to multiple threads means that several threads of execution will be running the very same job (and that the same job will be done multiple times).</p> <p><strong>==================================================================================</strong> <strong>Exam Watch</strong> The Thread class itself implements Runnable. (After all, it has a run() method that we were overriding.) This means that you could pass a Thread to another Thread’s constructor:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(<span class="pl-k">new</span> <span class="pl-smi">MyThread</span>());</pre>
+  </div> <p>This is a bit silly, but it’s legal. In this case, you really just need a Runnnable, and creating a whole other Thread is overkill. <strong>==================================================================================</strong></p> <p>there are other overloaded constructors in class Thread. The constructors we care about are:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        Thread()</pre>
+  </div> 
+  <div class="highlight highlight-source-java">
+   <pre>        Thread(<span class="pl-smi">Runnable</span> target)</pre>
+  </div> 
+  <div class="highlight highlight-source-java">
+   <pre>        Thread(<span class="pl-smi">Runnable</span> target, <span class="pl-smi">String</span> name)</pre>
+  </div> 
+  <div class="highlight highlight-source-java">
+   <pre>        Thread(<span class="pl-smi">String</span> name)</pre>
+  </div> <p>You need to recognize all of them for the exam!</p> <p>When a thread has been instantiated but not started (in other words, the start() method has not been invoked on the Thread instance), the thread is said to be in the <strong>new state.</strong> At this stage, the thread is not yet considered to be alive. Once the <em>start()</em> method is called, the thread is considered to be <strong>alive</strong> (even though the <em>run()</em> method may not have actually started executing yet). A thread is considered <strong>dead</strong> (no longer alive) after the <em>run()</em> method completes.</p> </li> 
+ <li> <h5> <a id="starting-a-thread" class="anchor" href="#starting-a-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Starting a Thread</strong> </h5> <p>To launch a new call stack. It's so simple it hardly deserves its own subheading:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    t<span class="pl-k">.</span>start();</pre>
+  </div> <p>So what happens after you call start()? The good stuff:</p> 
+  <ul> 
+   <li>A new thread of execution starts (with a new call stack).</li> 
+   <li>The thread <strong>moves from the new state to the runnable state.</strong> </li> 
+   <li>When the thread gets a chance to execute, its target run() method will run.</li> 
+  </ul> <p>Be sure you remember the following: You start a Thread, not a Runnable. You call start() on a Thread instance, not on a Runnable instance. The following example demonstrates what we've covered so far—defining, instantiating, and starting a thread:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-k">class</span> <span class="pl-en">FooRunnable</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+                <span class="pl-k">for</span>(<span class="pl-k">int</span> x <span class="pl-k">=</span><span class="pl-c1">1</span>; x <span class="pl-k">&lt;</span> <span class="pl-c1">6</span>; x<span class="pl-k">++</span>) {
+                    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Runnable running<span class="pl-pds">&quot;</span></span>);
+                }
+            }
+        }</pre>
+  </div> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TestThreads</span> {
+            <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-smi">String</span> [] <span class="pl-v">args</span>) {
+                <span class="pl-smi">FooRunnable</span> r <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">FooRunnable</span>();
+                <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(r);
+                t<span class="pl-k">.</span>start();
+            }
+        }</pre>
+  </div> <p><strong>==================================================================================</strong> <strong>Exam Watch</strong> There’s nothing special about the run() method as far as Java is concerned. Like main(), it just happens to be the name (and signature) of the method that the new thread knows to invoke. So if you see code that calls the run() method on a Runnable (or even on a Thread instance), that’s perfectly legal. But it doesn’t mean the run() method will run in a separate thread! Calling a run() method directly just means you’re invoking a method from whatever thread is currently executing, and the run() method goes onto the current call stack rather than at the beginning of a new call stack. The following code does not start a new thread of execution:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>();
+    t<span class="pl-k">.</span>run(); <span class="pl-c"><span class="pl-c">//</span> Legal, but does not start a new thread</span></pre>
+  </div> <p><strong>==================================================================================</strong> The following example instantiates a thread and gives it a name, and then the name is printed out from the <em>run()</em> method:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-k">class</span> <span class="pl-en">NameRunnable</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+           <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+               <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>NameRunnable running<span class="pl-pds">&quot;</span></span>);
+               <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Run by <span class="pl-pds">&quot;</span></span>
+                   <span class="pl-k">+</span> <span class="pl-smi">Thread</span><span class="pl-k">.</span>currentThread()<span class="pl-k">.</span>getName());
+           }
+       }</pre>
+  </div> 
+  <div class="highlight highlight-source-java">
+   <pre>       <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">NameThread</span> {
+           <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-smi">String</span> [] <span class="pl-v">args</span>) {
+               <span class="pl-smi">NameRunnable</span> nr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">NameRunnable</span>();
+               <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+               t<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Fred<span class="pl-pds">&quot;</span></span>);
+               t<span class="pl-k">.</span>start();
+           }
+       }</pre>
+  </div> <p>Running this code produces the following, extra special, output:</p> <pre><code>   % java NameThread
+   NameRunnable running
+   Run by Fred
+</code></pre> <p>To get the name of a thread you call—who would have guessed—getName() on the Thread instance. But the target Runnable instance doesn't even have a reference to the Thread instance, so we first invoked the static Thread.currentThread() method, which returns a reference to the currently executing thread, and then we invoked getName() on that returned reference. Esto quiere decir que como no tenemos una instancia Thread, ya que implementamos de Runnable entonces debemos hacer esto <strong>Thread.currentThread()</strong> para obtener el name con el m&eacute;todo <em>getName()</em>. Even if you don't explicitly name a thread, it still has a name. Let's look at the previous code, commenting out the statement that sets the thread's name:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">NameThread</span> {
+       <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-smi">String</span> [] <span class="pl-v">args</span>) {
+           <span class="pl-smi">NameRunnable</span> nr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">NameRunnable</span>();
+           <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+           <span class="pl-c"><span class="pl-c">//</span> t.setName(&quot;Fred&quot;);</span>
+           t<span class="pl-k">.</span>start();
+       }
+   }</pre>
+  </div> <p>Running the preceding code now gives us</p> <pre><code>    % java NameThread
+    NameRunnable running
+    Run by Thread-0
+</code></pre> <p>Esto queire decir que aunque no proporcionemos un nombre al <em>thread</em> este tendr&aacute; por default un nombre. Figure 9-1 shows the process of starting a thread. <a href="https://camo.githubusercontent.com/813c73b4dac33cb8a233713094dbf9d15517426c/68747470733a2f2f692e696d6775722e636f6d2f495270363266312e6a7067" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/813c73b4dac33cb8a233713094dbf9d15517426c/68747470733a2f2f692e696d6775722e636f6d2f495270363266312e6a7067" alt="Imgur" data-canonical-src="https://i.imgur.com/IRp62f1.jpg" style="max-width:100%;" /></a></p> </li> 
+ <li> <h5> <a id="starting-and-running-multiple-thread" class="anchor" href="#starting-and-running-multiple-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Starting and Running Multiple Thread</strong> </h5> <p>We already had two threads, because the main() method starts in a thread of its own, and then t.start() started a second thread. The following code creates a single Runnable instance and three Thread instances. All three Thread instances get the same Runnable instance, and each thread is given a unique name. Finally, all three threads are started by invoking start() on the Thread instances.</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">class</span> <span class="pl-en">NameRunnable</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> x <span class="pl-k">=</span> <span class="pl-c1">1</span>; x <span class="pl-k">&lt;=</span> <span class="pl-c1">3</span>; x<span class="pl-k">++</span>) {
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Run by <span class="pl-pds">&quot;</span></span>
+                    <span class="pl-k">+</span> <span class="pl-smi">Thread</span><span class="pl-k">.</span>currentThread()<span class="pl-k">.</span>getName()
+                        <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&quot;</span>, x is <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> x);
+            }
+        }   
+    }
+    
+    <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ManyNames</span> {
+        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span> [] <span class="pl-v">args</span>) {
+            <span class="pl-c"><span class="pl-c">//</span> Make one Runnable</span>
+            <span class="pl-smi">NameRunnable</span> nr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">NameRunnable</span>();
+            <span class="pl-smi">Thread</span> one <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+            <span class="pl-smi">Thread</span> two <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+            <span class="pl-smi">Thread</span> three <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+            one<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Fred<span class="pl-pds">&quot;</span></span>);
+            two<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Lucy<span class="pl-pds">&quot;</span></span>);
+            three<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Ricky<span class="pl-pds">&quot;</span></span>);
+            one<span class="pl-k">.</span>start();
+            two<span class="pl-k">.</span>start();
+            three<span class="pl-k">.</span>start();
+        }
+    }</pre>
+  </div> <p>Just because a series of threads are started in a particular order doesn't mean they'll run in that order. A thread is done being a thread when its target run() method completes. When a thread completes its run() method, the thread ceases to be a thread of execution. The stack for that thread dissolves, and the thread is considered dead. Once a thread has been started, it can never be started again. And it's the thread scheduler that decides which thread—of all that are eligible—will actually run. When we say eligible, we really mean in the runnable state. The order in which runnable threads are chosen to run is not guaranteed.</p> </li> 
+ <li> <h5> <a id="methods-from-the-javalangthread-class" class="anchor" href="#methods-from-the-javalangthread-class" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Methods from the java.lang.Thread Class</strong> </h5> <p>Some of the methods that can help us influence thread scheduling are as follows:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> sleep(<span class="pl-k">long</span> millis) throws <span class="pl-smi">InterruptedException</span>
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> yield()
+    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span> join() throws <span class="pl-smi">InterruptedException</span>
+    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span> setPriority(<span class="pl-k">int</span> newPriority)</pre>
+  </div> <p>Note that both sleep() and join() have overloaded versions not shown here.</p> <p>Methods from the java.lang.Object Class Every class in Java inherits the following three thread-related methods:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span> wait() throws <span class="pl-smi">InterruptedException</span>
+    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span> notify()
+    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span> notifyAll()</pre>
+  </div> </li> 
+ <li> <h5> <a id="thread-states" class="anchor" href="#thread-states" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Thread States</strong> </h5> 
+  <ul> 
+   <li> <p><strong>New</strong> This is the state the thread is in after the Thread instance has been created, but the start() method has not been invoked on the thread. It is a live Thread object, but not yet a thread of execution. At this point, the thread is considered not alive.</p> </li> 
+   <li> <p><strong>Runnable</strong> This is the state a thread is in when it's eligible to run, but the scheduler has not selected it to be the running thread. A thread first enters the runnable state when the <em>start()</em> method is invoked, but a thread can also return to the runnable state after either running or coming back from a blocked, waiting, or sleeping state. When the thread is in the runnable state, it is considered alive.</p> </li> 
+   <li> <p><strong>Running</strong> This is it. The &quot;big time.&quot; Where the action is. This is the state a thread is in when the thread scheduler selects it (from the runnable pool) to be the currently executing process. A thread can transition out of a running state for several reasons, including because &quot;the thread scheduler felt like it.&quot; We'll look at those other reasons shortly. Note that in Figure 9-2, there are several ways to get to the runnable state, but only one way to get to the running state: the scheduler chooses a thread from the runnable pool.</p> </li> 
+   <li> <p><strong>Waiting/blocked/sleeping</strong> This is the state a thread is in when it'sceligible to run. Okay, so this is really three states combined into one, but they all have one thing in common: the thread is still alive, but is currently not eligible to run. In other words, it is not runnable, but it might return to a runnable state later if a particular event occurs.</p> </li> 
+   <li> <p><strong>Dead</strong> A thread is considered dead when its run() method completes. It may still be a viable Thread object, but it is no longer a separate thread of execution. Once a thread is dead, it can never be brought back to life! If you invoke start() on a dead Thread instance, you'll get a runtime (not compiler) exception. <a href="https://camo.githubusercontent.com/6020aa812f817f95619e6c66d2baa809cbe34cea/68747470733a2f2f692e696d6775722e636f6d2f365879414456582e6a7067" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/6020aa812f817f95619e6c66d2baa809cbe34cea/68747470733a2f2f692e696d6775722e636f6d2f365879414456582e6a7067" alt="Imgur" data-canonical-src="https://i.imgur.com/6XyADVX.jpg" style="max-width:100%;" /></a></p> </li> 
+  </ul> </li> 
+ <li> <p><strong>Sleeping</strong> The sleep() method is a static method of class Thread. You use it in your code to &quot;slow a thread down&quot; by forcing it to go into a sleep mode before coming back to runnable. When a thread sleeps, it drifts off somewhere and doesn't return to runnable until it wakes up. You do this by invoking the static Thread.sleep() method, giving it a time in milliseconds as follows:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>      <span class="pl-k">try</span> {
+           <span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">5</span><span class="pl-k">*</span><span class="pl-c1">60</span><span class="pl-k">*</span><span class="pl-c1">1000</span>); <span class="pl-c"><span class="pl-c">//</span> Sleep for 5 minutes</span>
+       } <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> ex) { }</pre>
+  </div> <p>Let's modify our Fred, Lucy, Ricky code by using sleep() to try to force the threads to alternate rather than letting one thread dominate for any period of time. Where do you think the sleep() method should go?</p> 
+  <div class="highlight highlight-source-java">
+   <pre>        <span class="pl-k">class</span> <span class="pl-en">NameRunnable</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+      	<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+      		<span class="pl-k">for</span> (<span class="pl-k">int</span> x <span class="pl-k">=</span> <span class="pl-c1">1</span>; x <span class="pl-k">&lt;</span> <span class="pl-c1">4</span>; x<span class="pl-k">++</span>) {
+      			<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Run by <span class="pl-pds">&quot;</span></span> 
+      			    <span class="pl-k">+</span> <span class="pl-smi">Thread</span><span class="pl-k">.</span>currentThread()<span class="pl-k">.</span>getName());
+      			<span class="pl-k">try</span> {
+      				<span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">1000</span>);
+      			} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> ex) {
+      			}
+      		}
+      	}
+      }
+
+  <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ManyNames</span> {
+  	<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+  		<span class="pl-c"><span class="pl-c">//</span> Make one Runnable</span>
+  		<span class="pl-smi">NameRunnable</span> nr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">NameRunnable</span>();
+  		<span class="pl-smi">Thread</span> one <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+  		one<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Fred<span class="pl-pds">&quot;</span></span>);
+  		<span class="pl-smi">Thread</span> two <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+  		two<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Lucy<span class="pl-pds">&quot;</span></span>);
+  		<span class="pl-smi">Thread</span> three <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(nr);
+  		three<span class="pl-k">.</span>setName(<span class="pl-s"><span class="pl-pds">&quot;</span>Ricky<span class="pl-pds">&quot;</span></span>);
+  		one<span class="pl-k">.</span>start();
+  		two<span class="pl-k">.</span>start();
+  		three<span class="pl-k">.</span>start();
+  	}
+  }</pre>
+  </div> <p>Just keep in mind that the behavior in the preceding output is still not guaranteed. You can't be certain how long a thread will actually run before it gets put to sleep, so you can't know with certainty that only one of the three threads will be in the runnable state when the running thread goes to sleep. In other words, if there are two threads awake and in the runnable pool, you can't know with certainty that the least recently used thread will be the one selected to run. Still, using sleep() is the best way to help all threads get a chance to run! Or at least to guarantee that one thread doesn't get in and stay until it's done. <strong>==================================================================================</strong> <strong>Exam Watch</strong> Just because a thread’s sleep() expires, and it wakes up, does not mean it will return to running! Remember, when a thread wakes up, it simply goes back to the runnable state. So the time specified in sleep() is the minimum duration in which the thread won’t run, but it is not the exact duration in which the thread won’t run. So you can’t, for example, rely on the sleep() method to give you a perfectly accurate timer. Although in many applications using sleep() as a timer is certainly good enough, you must know that a sleep() time is not a guarantee that the thread will start running again as soon as the time expires and the thread wakes. <strong>==================================================================================</strong> Remember that <em>sleep()</em> is a static method, so don't be fooled into thinking that one thread can put another thread to sleep. You can put sleep() code anywhere, since all code is being run by some thread. When the executing code (meaning the currently running thread's code) hits a sleep() call, it puts the currently running thread to sleep.</p> </li> 
+ <li> <h5> <a id="thread-priorities" class="anchor" href="#thread-priorities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Thread Priorities</strong> </h5> <p>Threads always run with some priority, usually represented as a number between 1 and (although in some cases the range is less than 10). You can also set a thread's priority directly by calling the setPriority() method on a Thread instance as follows:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">FooRunnable</span> r <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">FooRunnable</span>();
+    <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(r);
+    t<span class="pl-k">.</span>setPriority(<span class="pl-c1">8</span>);
+    t<span class="pl-k">.</span>start();</pre>
+  </div> <p>Priorities are set using a positive integer, usually between 1 and 10, and the JVM will never change a thread's priority. However, the values 1 through 10 are not guaranteed. Although the default priority is 5, the Thread class has the three following constants (static final variables) that define the range of thread priorities:</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">Thread</span><span class="pl-c1"><span class="pl-k">.</span>MIN_PRIORITY</span> (<span class="pl-c1">1</span>)
+    <span class="pl-smi">Thread</span><span class="pl-c1"><span class="pl-k">.</span>NORM_PRIORITY</span> (<span class="pl-c1">5</span>)
+    <span class="pl-smi">Thread</span><span class="pl-c1"><span class="pl-k">.</span>MAX_PRIORITY</span> (<span class="pl-c1">10</span>)</pre>
+  </div> </li> 
+ <li> <h5> <a id="the-yield--method" class="anchor" href="#the-yield--method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>The yield( ) Method</strong> </h5> <p>So what does the static Thread.yield() have to do with all this? Not that much, in practice. What yield() is supposed to do is make the currently running thread head back to runnable to allow other threads of the same priority to get their turn.</p> </li> 
+ <li> <h5> <a id="the-join--method" class="anchor" href="#the-join--method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>The join( ) Method</strong> </h5> <p>The non-static join() method of class Thread lets one thread &quot;join onto the end&quot; of another thread. If you have a thread B that can't do its work until another thread A has completed its work, then you want thread B to &quot;join&quot; thread A. This means that thread B will not become runnable until A has finished (and entered the dead state).</p> 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-smi">Thread</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>();
+    t<span class="pl-k">.</span>start();
+    t<span class="pl-k">.</span>join();</pre>
+  </div> <p>The preceding code takes the currently running thread (if this were in the main() method, then that would be the main thread) and joins it to the end of the thread referenced by t. This blocks the current thread from becoming runnable until after the thread referenced by t is no longer alive. In other words, the code t.join() means &quot;Join me (the current thread) to the end of t, so that t must finish before I (the current thread) can run again.</p> <p>So far we've looked at three ways a running thread could leave the running state:</p> 
+  <ul> 
+   <li> <p>A <strong>call to sleep()</strong> Guaranteed to cause the current thread to stop executing for at least the specified sleep duration (although it might be interrupted before its specified time).</p> </li> 
+   <li> <p>A <strong>call to yield()</strong> Not guaranteed to do much of anything, although typically it will cause the currently running thread to move back to runnable so that a thread of the same priority can have a chance.</p> </li> 
+   <li> <p>A <strong>call to join()</strong> Guaranteed to cause the current thread to stop executing until the thread it joins with (in other words, the thread it calls join() completes, or if the thread it's trying to join with is not alive, however, the current thread won't need to back out.</p> </li> 
+  </ul> <p>Besides those three, we also have the following scenarios in which a thread might leave the running state:</p> 
+  <ul> 
+   <li>The thread's run() method completes. Duh.</li> 
+   <li>A call to wait() on an object</li> 
+   <li>A thread can't acquire the lock on the object whose method code it's attempting to run.</li> 
+   <li>The thread scheduler can decide to move the current thread from running to runnable in order to give another thread a chance to run. No reason is needed—the thread scheduler can trade threads in and out whenever it likes.</li> 
+  </ul> </li> 
+ <li> <h5> <a id="synchronizing-code" class="anchor" href="#synchronizing-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Synchronizing Code</strong> </h5> <p>The following code demonstrates what happens when two different threads are accessing the same account data. <em>Ver Ejemplo</em> <strong><em>com.test.exam.ocjp.threads.synchronized</em></strong></p> <p>Figure 9-4 shows the timeline of what can happen when two threads concurrently access the same object. This problem is known as a &quot;race condition,&quot; where multiple threads can access the same resource (typically an object's instance variables), and can produce corrupted data if one thread &quot;races in&quot; too quickly before an operation that should be &quot;atomic&quot; has completed.</p> <p><a href="https://camo.githubusercontent.com/060b9e35d59da56ac2e48e5fecf6ef77c09459f3/68747470733a2f2f692e696d6775722e636f6d2f34436336526f452e6a7067" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/060b9e35d59da56ac2e48e5fecf6ef77c09459f3/68747470733a2f2f692e696d6775722e636f6d2f34436336526f452e6a7067" alt="Imgur" data-canonical-src="https://i.imgur.com/4Cc6RoE.jpg" style="max-width:100%;" /></a></p> </li> 
+ <li> <h5> <a id="synchronization-and-locks" class="anchor" href="#synchronization-and-locks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Synchronization and Locks</strong> </h5> <p>En resumen esto es para evitar que varios threads accedan a los mismos datos que normalemnte son variables de instancia y con eso evitar que los datos se corrompan ya que como se muestra en el diagrama de arriba en un tiempo determinado 2 threads pueden acceder a la misma referencia. Ahora bien, cuando declaramos un m&eacute;todo o un bloque de c&oacute;digo como synchronized el thread actual adquiere su lock o su monitor y con esto puede hacer a que los otros threads se esperen y entran en un estado como &quot;bloqueado&quot; eso es un pool donde se van metiendo lso threads hasta que el thread &quot;suelte&quot; el monitor y entonces otro thread ya puede tomar el monitor, es como liberar un recurso. Remember the following key points about locking and synchronization:</p> 
+  <ul> 
+   <li>Only methods (or blocks) can be synchronized, not variables or classes.</li> 
+   <li>Each object has just one lock.</li> 
+   <li>Not all methods in a class need to be synchronized. A class can have both synchronized and non-synchronized methods.</li> 
+   <li>If two threads are about to execute a synchronized method in a class, and both threads are using the same instance of the class to invoke the method, only one thread at a time will be able to execute the method. The other thread will need to wait until the first one finishes its method call. In other words, once a thread acquires the lock on an object, no other thread can enter any of the synchronized methods in that class (for that object).</li> 
+   <li>If a class has both synchronized and non-synchronized methods, multiple threads can still access the class's non-synchronized methods! If you have methods that don't access the data you're trying to protect, then you don't need to synchronize them. Synchronization can cause a hit in some cases (or even deadlock if used incorrectly), so you should be careful not to overuse it.</li> 
+   <li>If a thread goes to sleep, it holds any locks it has—it doesn't release them.</li> 
+   <li>A thread can acquire more than one lock. For example, a thread can enter a synchronized method, thus acquiring a lock, and then immediately invoke a synchronized method on a different object, thus acquiring that lock as well. As the stack unwinds, locks are released again. Also, if a thread acquires a lock and then attempts to call a synchronized method on that same object, no problem. The JVM knows that this thread already has the lock for this object, so the thread is free to call other synchronized methods on the same object, using the lock the thread already has.</li> 
+   <li>You can synchronize a block of code rather than a method.</li> 
+  </ul> <p>When thinking about blocking, it's important to pay attention to which objects are being used for locking.</p> 
+  <ul> 
+   <li> <p>Threads calling non-static synchronized methods in the same class will only block each other if they're invoked using the same instance. That's because they each lock on this instance, and if they're called using two different instances, they get two locks, which do not interfere with each other. Este punto es importante porque como hemos visto en los ejemplos anteriores todo se hace sobre el mismo objeto o la misma refrencia, pero si se crean 2 diferentes objetos son independientes por lo que cada uno tendr&aacute; su propio monitor.</p> </li> 
+   <li> <p>Threads calling static synchronized methods in the same class will always block each other—they all lock on the same Class instance.</p> </li> 
+   <li> <p>static synchronized method and a non-static synchronized method will not block each other, ever. The static method locks on a Class instance while the non-static method locks on the this instance—these actions do not interfere with each other at all.</p> </li> 
+   <li> <p>For synchronized blocks, you have to look at exactly what object has been used for locking. (What's inside the parentheses after the word synchronized?) Threads that synchronize on the same object will block each other. Threads that synchronize on different objects will not.</p> </li> 
+   <li> <p>No hay que preocuparse de las vairbles locales cuando usamos threads ya que cada thread crea sus propias copias de vairables de instancia, por tanto solo hay que preocparnos de las variables de instancia o de objetos que se puedan corromper.</p> </li> 
+   <li> <p>Para entender mejor esto podriamos decir que si varios threads van a manipular un mismo objeto entonces si debemos tener cuidado y en los casos que sea necesario debemos usar synchronized para que adquiere su monitor y los otros threads queden bloqueados en espera que el recurso sea liberado. Por otro lado si cada uno de esos threads va a trabajar objetos no compartidos entonces no hay problema y no se necesita la sincronizaci&oacute;n.</p> <p><strong>==================================================================================</strong> <strong>Exam Watch</strong> The methods wait() , notify(), and notifyAll() are methods of only java.lang.Object, not of java.lang.Thread or java.lang.Runnable. Be sure you know which methods are defined in Thread, which in Object, and which in Runnable (just run(), so that’s an easy one). Of the key methods in Thread, be sure you know which are static—sleep() and yield(), and which are not static—join() and start(). Table 9-2 lists the key methods you’ll need to know for the exam, with the static methods shown in italics. <a href="https://camo.githubusercontent.com/5a122d0cf1759bc9b6b6c566deee5952dc359286/68747470733a2f2f692e696d6775722e636f6d2f546466793562372e6a7067" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/5a122d0cf1759bc9b6b6c566deee5952dc359286/68747470733a2f2f692e696d6775722e636f6d2f546466793562372e6a7067" alt="Imgur" data-canonical-src="https://i.imgur.com/Tdfy5b7.jpg" style="max-width:100%;" /></a> <strong>==================================================================================</strong></p> </li> 
+  </ul> </li> 
+</ol>
+</body>
+</html>
