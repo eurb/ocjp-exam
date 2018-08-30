@@ -1,5 +1,4 @@
 package com.test.exam.ocjp.threads.practice02;
-
 //Given:
 class MyThread extends Thread {
 	public static void main(String[] args) {
@@ -7,7 +6,6 @@ class MyThread extends Thread {
 		Thread x = new Thread(t);
 		x.start();
 	}
-
 	public void run() {
 		for (int i = 0; i < 3; ++i) {
 			System.out.print(i + "..");

@@ -1,19 +1,14 @@
 package com.test.exam.ocjp.threads.practice13;
-
 //Given:
 public class Starter implements Runnable {
 	void go(long id) {
 		System.out.println(id);
 	}
-
 	public static void main(String[] args) {
 		System.out.print(Thread.currentThread().getId() + " ");
 		// insert code here
 	}
-
-	public void run() {
-		go(Thread.currentThread().getId());
-	}
+	public void run() {go(Thread.currentThread().getId());}
 }
 
 /*

@@ -1,27 +1,17 @@
 package com.test.exam.ocjp.threads.practice14;
-
 //Given:
 public class Leader implements Runnable {
-
 	public static void main(String[] args) {
 		Thread t = new Thread(new Leader());
 		t.start();
 		System.out.print("m1 ");
-		//try {
-			t.join();
-		//} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
+		t.join();
 		System.out.print("m2 ");
-
 	}
-	
 	public void run() {
 		System.out.print("r1 ");
 		System.out.print("r2 ");
 	}
-
 }
 
 /*

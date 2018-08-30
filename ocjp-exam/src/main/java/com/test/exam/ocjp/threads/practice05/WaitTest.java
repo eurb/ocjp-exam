@@ -1,20 +1,19 @@
 package com.test.exam.ocjp.threads.practice05;
 
 //Given:
-public class WaitTest {
-	public static void main(String[] args) {
-		System.out.print("1 ");
-		synchronized (args) {
-
-			System.out.print("2 ");
-			try {
-				args.wait();
-			} catch (InterruptedException e) {
-			}
-		}
-		System.out.print("3 ");
-	}
-}
+/*1. */	public class WaitTest {
+/*2. */		public static void main(String[] args) {
+/*3. */			System.out.print("1 ");
+/*4. */			synchronized (args) {
+/*5. */				System.out.print("2 ");
+/*6. */				try {
+/*7. */					args.wait();
+/*8. */				} 
+/*9. */				catch (InterruptedException e) {}
+/*10. */		}
+/*11. */		System.out.print("3 ");
+/*12. */	}
+/*13. */}
 
 //What is the result of trying to compile and run this program?
 //A. It fails to compile because the IllegalMonitorStateException of wait() is not dealt with in line 7

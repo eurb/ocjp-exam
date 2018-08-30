@@ -1,7 +1,4 @@
-
 package com.test.exam.ocjp.threads.practice16;
-
-
 //Given:
 class Chicks {
 	synchronized void yack(long id) {
@@ -11,32 +8,21 @@ class Chicks {
 		}
 	}
 }
-
 public class ChicksYack implements Runnable {
-	
-	/*static*/ Chicks c;
-
-	/**
-	 * @param args
-	 */
+	Chicks c;
 	public static void main(String[] args) {
 		new ChicksYack().go();
-
 	}
-	
 	void go() {
 		c = new Chicks();
 		new Thread(new ChicksYack()).start();
 		new Thread(new ChicksYack()).start();
 	}
-
-	@Override
 	public void run() {
 		c.yack(Thread.currentThread().getId());
-		
 	}
-
 }
+
 /*
  * Which are true? (Choose all that apply)
 	A. Compilation fails
