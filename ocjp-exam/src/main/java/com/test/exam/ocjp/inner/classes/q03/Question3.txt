@@ -1,0 +1,99 @@
+Which are true about a method-local inner class? (Choose all that apply.)
+	A. It must be marked final
+	B. It can be marked abstract
+	C. It can be marked public
+	D. It can be marked static
+	E. It can access private members of the enclosing class
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Answer:
+	B and E. B is correct because a method-local inner class can be abstract, although it
+means a subclass of the inner class must be created if the abstract class is to be used (so
+an abstract method-local inner class is probably not useful). E is correct because a
+method-local inner class works like any other inner class—it has a special relationship to
+an instance of the enclosing class, thus it can access all members of the enclosing class.
+
+A is incorrect because a method-local inner class does not have to be declared final
+(although it is legal to do so). C and D are incorrect because a method-local inner class
+cannot be made public (remember—local variables can't be public) or static.
+
+
+
+
+
+
+Mi explicacipon
+	B es correcta debido a lo que se explica en el libro que una clase interna a método puede ser asbtracta
+	E es correcta ya que una clase dentro de método puede acceder a sus miembros private de un clase 
+		es como si fuera una clase interna normal.
+	
+	A es es incorrecta porque una clase interna a método no debe ser delcarada como final aunque segun es legal
+	  lo cual es una contradicción se puede pero no se debe.
+	C y D son incorrectas porque una clase interna a método no puede ser ni public ni static
+	
+Como truco hay que ver a las clases internas como variables de instancia o variables locales dependiendo
+en donde sean declaradas
+si es una clase interna a método se pueden ver como variables locales si es un clase interna a clase osea la normal
+se puede ver como un miembro de la clase y esto es para saber que modificadores de acceso puede usar, 
