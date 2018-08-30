@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice05;
+package com.test.exam.ocjp.threads.q05;
 
 //Given:
 /*1. */	public class WaitTest {

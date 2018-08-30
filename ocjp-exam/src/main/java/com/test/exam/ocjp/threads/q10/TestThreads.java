@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice10;
+package com.test.exam.ocjp.threads.q10;
 
 //Given:
 class MyThread extends Thread {

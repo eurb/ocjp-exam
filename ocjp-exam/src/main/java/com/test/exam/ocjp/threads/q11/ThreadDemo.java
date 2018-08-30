@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice11;
+package com.test.exam.ocjp.threads.q11;
 
 
 

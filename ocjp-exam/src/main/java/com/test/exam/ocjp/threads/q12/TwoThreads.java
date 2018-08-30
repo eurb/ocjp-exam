@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice12;
+package com.test.exam.ocjp.threads.q12;
 
 //Given:
 public class TwoThreads {

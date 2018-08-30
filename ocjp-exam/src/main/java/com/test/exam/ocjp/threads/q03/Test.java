@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice03;
+package com.test.exam.ocjp.threads.q03;
 //Given:
 class Test {
 	public static void main(String[] args) {

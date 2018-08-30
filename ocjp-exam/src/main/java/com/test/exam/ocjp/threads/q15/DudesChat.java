@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice15;
+package com.test.exam.ocjp.threads.q15;
 //Given:
 class Dudes {
 	static long flag = 0;

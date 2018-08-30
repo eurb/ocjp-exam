@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice16;
+package com.test.exam.ocjp.threads.q16;
 //Given:
 class Chicks {
 	synchronized void yack(long id) {

@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice14;
+package com.test.exam.ocjp.threads.q14;
 //Given:
 public class Leader implements Runnable {
 	public static void main(String[] args) {

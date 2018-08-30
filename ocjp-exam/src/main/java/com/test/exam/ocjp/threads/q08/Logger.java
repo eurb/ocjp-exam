@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.test.exam.ocjp.threads.practice08;
+package com.test.exam.ocjp.threads.q08;
 
 //Given the scenario: This class is intended to allow users to write a series of messages, 
 //so that each message is identified with a timestamp and the name of the thread that wrote the message:

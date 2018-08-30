@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice13;
+package com.test.exam.ocjp.threads.q13;
 //Given:
 public class Starter implements Runnable {
 	void go(long id) {

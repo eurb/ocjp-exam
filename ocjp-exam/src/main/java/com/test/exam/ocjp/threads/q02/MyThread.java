@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice02;
+package com.test.exam.ocjp.threads.q02;
 //Given:
 class MyThread extends Thread {
 	public static void main(String[] args) {

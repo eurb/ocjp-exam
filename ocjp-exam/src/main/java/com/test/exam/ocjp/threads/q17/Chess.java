@@ -1,4 +1,4 @@
-package com.test.exam.ocjp.threads.practice17;
+package com.test.exam.ocjp.threads.q17;
 //Given:
 public class Chess implements Runnable {
 	public void run() {
