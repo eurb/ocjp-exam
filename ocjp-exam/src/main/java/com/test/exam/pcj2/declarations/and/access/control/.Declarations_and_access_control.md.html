@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>C:\Users\eroman\git\eurb\ocjp-exam\ocjp-exam\src\main\java\com\test\exam\pcj2\declarations\and\access\control\.Declarations_and_access_control.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	background: transparent;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0 none;
+	text-decoration: underline;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+mark {
+	background: #ff0;
+	color: #000;
+}
+small {
+	font-size: 80%;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+img {
+	border: 0 none;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+figure {
+	margin: 1em 40px;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+pre {
+	overflow: auto;
+	font: 12px Consolas,"Liberation Mono",Menlo,Courier,monospace;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.markdown-body {
+	padding: 30px;
+	font-size: 16px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body .absent {
+	color: #c00;
+}
+
+.markdown-body .anchor {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	position: relative;
+	margin-top: 1em;
+	margin-bottom: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	display: none;
+	color: #000;
+	vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+	font-size: inherit;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+}
+
+.markdown-body h4 {
+	font-size: 1.25em;
+}
+
+.markdown-body h5 {
+	font-size: 1em;
+}
+
+.markdown-body h6 {
+	font-size: 1em;
+	color: #777;
+}
+
+.markdown-body p,.markdown-body blockquote,
+.markdown-body ul,.markdown-body ol,
+.markdown-body dl,.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+	padding: 0 15px;
+	color: #777;
+	border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+
+.markdown-body table th {
+	font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.markdown-body span.frame {
+	display: block;
+	overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+	display: block;
+	float: left;
+	width: auto;
+	padding: 7px;
+	margin: 13px 0 0;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.markdown-body span.frame span img {
+	display: block;
+	float: left;
+}
+
+.markdown-body span.frame span span {
+	display: block;
+	padding: 5px 0 0;
+	clear: both;
+	color: #333;
+}
+
+.markdown-body span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-center>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.markdown-body span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.markdown-body span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-right>span {
+	display: block;
+	margin: 13px 0 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+
+.markdown-body span.float-left {
+	display: block;
+	float: left;
+	margin-right: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+	margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+	display: block;
+	float: right;
+	margin-left: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body code,.markdown-body tt {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+	display: none;
+}
+
+.markdown-body del code {
+	text-decoration: inherit;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+	content: normal;
+}
+
+.highlight .pl-coc,
+.highlight .pl-entl,
+.highlight .pl-entm,
+.highlight .pl-eoa,
+.highlight .pl-mai .pl-sf,
+.highlight .pl-mm,
+.highlight .pl-pdv,
+.highlight .pl-sc,
+.highlight .pl-som,
+.highlight .pl-sr,
+.highlight .pl-v,
+.highlight .pl-vpf {
+	color: #0086b3;
+}
+.highlight .pl-eoac,
+.highlight .pl-mdht,
+.highlight .pl-mi1,
+.highlight .pl-mri,
+.highlight .pl-va,
+.highlight .pl-vpu {
+	color: #008080;
+}
+.highlight .pl-c,
+.highlight .pl-pdc {
+	color: #b4b7b4;
+	font-style: italic;
+}
+.highlight .pl-k,
+.highlight .pl-ko,
+.highlight .pl-kolp,
+.highlight .pl-mc,
+.highlight .pl-mr,
+.highlight .pl-ms,
+.highlight .pl-s,
+.highlight .pl-sok,
+.highlight .pl-st {
+	color: #6e5494;
+}
+.highlight .pl-ef,
+.highlight .pl-enf,
+.highlight .pl-enm,
+.highlight .pl-entc,
+.highlight .pl-eoi,
+.highlight .pl-sf,
+.highlight .pl-smc {
+	color: #d12089;
+}
+.highlight .pl-ens,
+.highlight .pl-eoai,
+.highlight .pl-kos,
+.highlight .pl-mh .pl-pdh,
+.highlight .pl-mp,
+.highlight .pl-pde,
+.highlight .pl-stp {
+	color: #458;
+}
+.highlight .pl-enti {
+	color: #d12089;
+	font-weight: bold;
+}
+.highlight .pl-cce,
+.highlight .pl-enc,
+.highlight .pl-kou,
+.highlight .pl-mq {
+	color: #f93;
+}
+.highlight .pl-mp1 .pl-sf {
+	color: #458;
+	font-weight: bold;
+}
+.highlight .pl-cos,
+.highlight .pl-ent,
+.highlight .pl-md,
+.highlight .pl-mdhf,
+.highlight .pl-ml,
+.highlight .pl-pdc1,
+.highlight .pl-pds,
+.highlight .pl-s1,
+.highlight .pl-scp,
+.highlight .pl-sol {
+	color: #df5000;
+}
+.highlight .pl-c1,
+.highlight .pl-cn,
+.highlight .pl-pse,
+.highlight .pl-pse .pl-s2,
+.highlight .pl-vi {
+	color: #a31515;
+}
+.highlight .pl-mb,
+.highlight .pl-pdb {
+	color: #df5000;
+	font-weight: bold;
+}
+.highlight .pl-mi,
+.highlight .pl-pdi {
+	color: #6e5494;
+	font-style: italic;
+}
+.highlight .pl-ms1 {
+	background-color: #f5f5f5;
+}
+.highlight .pl-mdh,
+.highlight .pl-mdi {
+	font-weight: bold;
+}
+.highlight .pl-mdr {
+	color: #0086b3;
+	font-weight: bold;
+}
+.highlight .pl-s2 {
+	color: #333;
+}
+.highlight .pl-ii {
+	background-color: #df5000;
+	color: #fff;
+}
+.highlight .pl-ib {
+	background-color: #f93;
+}
+.highlight .pl-id {
+	background-color: #a31515;
+	color: #fff;
+}
+.highlight .pl-iu {
+	background-color: #b4b7b4;
+}
+.highlight .pl-mo {
+	color: #969896;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h3> <a id="delcaraci&oacute;n-inicializaci&oacute;n-y-&Aacute;mbito" class="anchor" href="#delcaraci%C3%B3n-inicializaci%C3%B3n-y-%C3%81mbito" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Delcaraci&oacute;n Inicializaci&oacute;n Y &Aacute;mbito</h3> 
+<h5> <a id="declaraci&oacute;n-de-una-clase" class="anchor" href="#declaraci%C3%B3n-de-una-clase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Declaraci&oacute;n de una clase</h5> 
+<p>Cuando se declar&aacute; una clase hay que recordar las siguientes reglas:</p> 
+<ul> 
+ <li>Solamente puede haber una clase p&uacute;blica por archivo de c&oacute;digo fuente .java.</li> 
+ <li>El nombre de un archivo .java debe coincidir con &eacute;l de la clase p&uacute;blica. si no hay clases declaradas como <em>public</em> en el archivo, &eacute;ste se puede llamar de cualquier forma.</li> 
+</ul> 
+<h5> <a id="modificadores" class="anchor" href="#modificadores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modificadores</h5> 
+<p>En cuanto a los modifcadores que pueden utilizarse a la hora de definir una clase, tenemos:</p> 
+<ul> 
+ <li> <strong>De acceso:</strong> <em>public</em> y acceso por defecto. Como sabemos, este &uacute;ltimo tiene lugar cuando no se emplea ning&uacute;n modificador explicitamente.</li> 
+ <li> <strong>Est&aacute;tico:</strong> <em>static.</em> Este modifcador <strong>solo puede ser utilizado si se trata de una clase interna.</strong> </li> 
+ <li> <strong>Otros:</strong> <em>final, abstract, strictfp.</em> Se pueden combinar entre s&iacute;. con la excepci&oacute;n de <em>final</em> y <em>abstract</em> que no pueden aplicarse en la misma clase.</li> 
+</ul> 
+<p>El truco aqui es aprenderse que <em>static</em> es solo para clases internas, y que <em>final</em> y <em>asbtract</em> no pueden ir juntos ya que son conceptos opuestos, uno es para la herencia (<em>asbtract</em>) y el otro es para que no puedan heredar (<em>final</em>). Y el &uacute;ltimo es memorizar la palabra reservada <em>strictfp</em> y que se puede usar al declarar una clase.</p> 
+<h5> <a id="sentencias-import-y-package" class="anchor" href="#sentencias-import-y-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sentencias <em>import</em> y <em>package</em> </h5> 
+<p>Sobre el uso de estas sentencias hay que recordar que:</p> 
+<ul> 
+ <li>Si las clases del archivo .java pertenecen a un paquete, la sentencia <em>package</em> debe ser la primera l&iacute;nea del archivo.</li> 
+ <li>La sentencia <em>import</em> puede utilizarse para importar una clase: 
+  <div class="highlight highlight-source-java">
+   <pre><span class="pl-k">import</span> <span class="pl-smi">paquete.clase</span>;</pre>
+  </div> o todas las clases de un paquete: 
+  <div class="highlight highlight-source-java">
+   <pre><span class="pl-k">import</span> <span class="pl-smi">paquete.*</span>;</pre>
+  </div> </li> 
+ <li>La importaci&oacute;n de los elementos est&aacute;ticos de una clase uiliza la sintaxis: 
+  <div class="highlight highlight-source-java">
+   <pre>  <span class="pl-k">import static</span> <span class="pl-smi">paquete.clase.*</span>;</pre>
+  </div> </li> 
+</ul> 
+<p>Con respecto a este punto, hay que prestar atenci&oacute;n a los bloques de c&oacute;digo que aparecen en el examen, pues podemos encontrar situaciones como &eacute;sta:</p> 
+<div class="highlight highlight-source-java">
+ <pre>    <span class="pl-k">import</span> <span class="pl-smi">java.util.Vector.*</span>;
+    <span class="pl-k">class</span> <span class="pl-en">Ejemplo</span> {
+        <span class="pl-smi">Vector</span> v;<span class="pl-c"><span class="pl-c">//</span>error de compilaci&oacute;n</span>
+    }</pre>
+</div> 
+<p>El problema que se evidencia en el c&oacute;digo anterior, es que el simbolo &quot;*&quot; (comod&iacute;n) se debe de utilizar para hacer referencia a todas las clases de un determinado paquete, por lo que debe de estar precedido por un nombre del paquete y no de una clase. En este ejemplo se producir&aacute; un error de compilaci&oacute;n en la declaraci&oacute;n en la declaraci&oacute;n de la variable <em>v</em>, ya que el compilador intentar&aacute; localizar la clase Vector en el paquete <strong>java.util.Vector</strong> y no en java.util que es donde realemnte est&aacute;.</p> 
+<p>Asi pues si lo que se desea es importar el paquete <em>util</em> completo deber&iacute;a haberse utilizado:</p> 
+<div class="highlight highlight-source-java">
+ <pre>    <span class="pl-k">import</span> <span class="pl-smi">java.util.*</span>;</pre>
+</div> 
+<p>Si solo desea importar la clase Vector, basta con:</p> 
+<div class="highlight highlight-source-java">
+ <pre>    <span class="pl-k">import</span> <span class="pl-smi">java.util.Vector</span>;</pre>
+</div> 
+<p>Debemos prestar atenci&oacute;n tambi&eacute;n a los c&oacute;digos donde aparezca la sentencia <em>package</em>, en este sentido, cuidado con instrucciones como las siguientes:</p> 
+<div class="highlight highlight-source-java">
+ <pre>    <span class="pl-k">import</span> <span class="pl-smi">java.util.*</span>;
+    <span class="pl-k">package</span> <span class="pl-smi">mipaquete</span>;
+    <span class="pl-k">class</span> <span class="pl-en">MiClase</span> {
+        <span class="pl-c"><span class="pl-c">//</span>C&oacute;digo aqui</span>
+    }</pre>
+</div> 
+<p>El c&oacute;digo anterior no compilar&aacute;, pues la sentencia <em>packeage</em> no puede aparecer despu&eacute;s del <em>import</em>.</p> 
+<h5> <a id="declaraci&oacute;n-de-una-interfaz" class="anchor" href="#declaraci%C3%B3n-de-una-interfaz" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Declaraci&oacute;n de una interfaz</h5> 
+<p>De cara a las interfaces que puedan aparecer definidas en las mismas preguntas del examen, hay que recordar las siguientes reglas sobre su declaraci&oacute;n:</p> 
+<ul> 
+ <li>Todos los m&eacute;todos definidos en la interfaz son implicitamente <em>public</em> y <em>asbtract</em>, auqnue no lleven esos modificadores.</li> 
+ <li>Los m&eacute;todos en una interfaz <strong>no pueden ser est&aacute;ticos</strong> </li> 
+ <li>Una interfaz no puede incluir variables de instancia, por lo que toda la variable declarada en una interfaz deber&aacute; tener asignado un valor (constante). De hecho, toda variable definida en una interfaz es implicitamente <em>public, static y final</em>, aunque no se indiquen explicitamente estos modificadores.</li> 
+ <li>Una interfaz puede heredar una o varias interfaces, pero no puede implementar nada. La siguiente declarai&oacute;n de interfaz es incorrecta: 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-c"><span class="pl-c">//</span>Error de compilaci&oacute;n</span>
+    <span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">InterfazA</span>
+                <span class="pl-k">implements</span> <span class="pl-e">InterfazB</span> { }</pre>
+  </div> Lo correcto ser&iacute;a: 
+  <div class="highlight highlight-source-java">
+   <pre>   <span class="pl-c"><span class="pl-c">//</span>Error de compilaci&oacute;n</span>
+   <span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">InterfazA</span> <span class="pl-k">extends</span> <span class="pl-e">InterfazB</span> { }</pre>
+  </div> </li> 
+ <li>El uso del modificador <em>abstract</em> en la declaraci&oacute;n de una interfaz es redundante, pero no incorrecto. La siguiente declaraci&oacute;n es v&aacute;lida: 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-k">interface</span> <span class="pl-en">InterfazA</span>  { }</pre>
+  </div> </li> 
+</ul> 
+<h5> <a id="declaraci&oacute;n-de-una-enumeraci&oacute;n" class="anchor" href="#declaraci%C3%B3n-de-una-enumeraci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Declaraci&oacute;n de una Enumeraci&oacute;n</h5> 
+<p>Reapecto a la declaraci&oacute;n de una enumeraci&oacute;n debemos tener en cuenta lo siguiente:</p> 
+<ul> 
+ <li>Las enumeraciones se declarar&aacute;n: 
+  <div class="highlight highlight-source-java">
+   <pre>    <span class="pl-k">enum</span> <span class="pl-en">Nombre_enumeracion</span> {
+        <span class="pl-c1">VALOR1</span>. <span class="pl-c1">VALOR2</span>, <span class="pl-c1">.</span> <span class="pl-c1">.</span> <span class="pl-c1">.</span> }</pre>
+  </div> </li> 
+ <li>Pueden esrar declaradas como dato miembro de la clase o como elemento independiente, <strong>nunca pueden declararse en el interior de un m&eacute;todo.</strong> </li> 
+</ul> 
+<h6> <a id="modifciadores" class="anchor" href="#modifciadores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modifciadores</h6> 
+<p>Sobre los modifciadores v&aacute;lidos para la declraci&oacute;n de una enumeraci&oacute;n se pueden utilizar los siguientes:</p> 
+<ul> 
+ <li> <strong>De aceeso:</strong> Siguiendo las mismas reglas que en la declaraci&oacute;n de una clase, pueden utilizarse los modificadores de acceso <em>public</em> y <em>default</em>.</li> 
+ <li> <strong>Otros:</strong> Toda enumeraci&oacute;n es implicistamente est&aacute;tica- aunque expl&iacute;citamente s&oacute;lo se admite el modificador <em>static</em> cuando la enumeraci&oacute;n est&aacute; declarada dato dato miebro de la clase.</li> 
+</ul> 
+<h4> <a id="m&aacute;s-sobre-enumeaciones" class="anchor" href="#m%C3%A1s-sobre-enumeaciones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M&aacute;s sobre Enumeaciones</h4> 
+<p>Por ejemplo podemos declarar la siguiente enumeraci&oacute;n Direccones para reemplazar por ejemplo una clase que usarpa variables contantes (public static final int NORTE=0), en vez de eso definimos la siguiente enumeraci&oacute;n:</p> 
+<div class="highlight highlight-source-java">
+ <pre>       <span class="pl-k">enum</span> <span class="pl-en">Direcciones</span> {<span class="pl-c1">NORTE</span>, <span class="pl-c1">SUR</span>, <span class="pl-c1">ESTE</span>, <span class="pl-c1">OESTE</span> }</pre>
+</div> 
+<p>Veamos un ejemplo de como usar la enumeraci&oacute;n Direcciones con las siguienres clases:</p> 
+<div class="highlight highlight-source-java">
+ <pre>       <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Barco</span> {
+           <span class="pl-k">private</span> <span class="pl-smi">Direcciones</span> orientacion;
+           <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">setOrientacion</span>(<span class="pl-smi">Direcciones</span> <span class="pl-v">s</span>){
+               orientacion<span class="pl-k">=</span>s;
+           }
+           <span class="pl-k">public</span> <span class="pl-smi">Direcciones</span> <span class="pl-en">getOrientacion</span>() {
+               <span class="pl-k">return</span> orientacion;
+           }
+       }
+       
+       <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Navegacion</span> {
+           <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-smi">String</span> <span class="pl-v">args</span>[]) {
+               <span class="pl-smi">Barco</span> b <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Barco</span>();
+               <span class="pl-c"><span class="pl-c">//</span>establecimiento de la orientaci&oacute;n a</span>
+               <span class="pl-c"><span class="pl-c">//</span>partir de los valores de la enumeraci&oacute;n</span>
+               b<span class="pl-k">.</span>setOrientacion(<span class="pl-smi">Direcciones</span><span class="pl-c1"><span class="pl-k">.</span>OESTE</span>);
+           }
+       }</pre>
+</div> 
+<p>Al declararse el param&eacute;tro <em>orientacion</em> como tipo <em>Direcciones</em>, el compilador solo admitir&aacute; que se le asignen los valores definidos en dicha enumeraci&oacute;n, haciendo m&aacute;s seguro el c&oacute;digo.</p> 
+<h4> <a id="clases-de-enumeraci&oacute;n" class="anchor" href="#clases-de-enumeraci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clases de Enumeraci&oacute;n</h4> 
+<p>Una enumeraci&oacute;n es un tipo especial de clase, clase que hereda <em>java.lang.Enum</em>. A diferencia de las clases est&aacute;ndares, una enumeraci&oacute;n no permite el uso del operador <em>new</em> para la creaci&oacute;n de objetos. Cada uno de los valores de la enumeraci&oacute;n representa uno de los posibles objetos de la clase. asi pues, estos ser&aacute;n creados de forma implicita. Adem&aacute;s de los m&eacute;todos herdados de <em>Enum</em>, todas las enumeraciones dispones del m&eacute;todo est&aacute;tico <em>values()</em> ue devuelve un array con todos los objetos (valores de la enumeracion). El siguiente m&eacute;todo muestra en patanlla todos los valores de la enumeraci&oacute;n Direcciones definida anteriormente.</p> 
+<div class="highlight highlight-source-java">
+ <pre>        <span class="pl-k">public</span> <span class="pl-k">void</span> muestraValores() {
+            <span class="pl-k">for</span>(<span class="pl-smi">Direcciones</span> dir<span class="pl-k">:</span> <span class="pl-smi">Direcciones</span><span class="pl-k">.</span>values()) {
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(dir);
+            }
+        }</pre>
+</div> 
+<p>Otra diferencia entre los objetos de las clases est&aacute;ndares y los objetos enumerados, est&aacute; en que estos &uacute;ltimos pueden ser utilizados en expresiones de comparaci&oacute;n de igualdad mediante el signo <em>==</em> y como valores de una instrucci&oacute;n <em>switch</em>.</p> 
+<div class="highlight highlight-source-java">
+ <pre>            <span class="pl-k">for</span>(<span class="pl-smi">Direcciones</span> dir<span class="pl-k">:</span> <span class="pl-smi">Direcciones</span><span class="pl-k">.</span>values()) {
+               <span class="pl-k">if</span>(dir<span class="pl-k">==</span><span class="pl-smi">Direcciones</span><span class="pl-c1"><span class="pl-k">.</span>SUR</span> <span class="pl-k">||</span> dir<span class="pl-k">==</span><span class="pl-smi">Direcciones</span><span class="pl-c1"><span class="pl-k">.</span>NORTE</span>) {
+                    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Rumbo Erroneo<span class="pl-pds">&quot;</span></span>);
+               }
+               <span class="pl-k">else</span> {
+                    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Rumbo Correcto<span class="pl-pds">&quot;</span></span>);
+               }
+            }</pre>
+</div> 
+<h4> <a id="constructores-y-m&eacute;todos-de-una-enumeraci&oacute;n" class="anchor" href="#constructores-y-m%C3%A9todos-de-una-enumeraci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Constructores y m&eacute;todos de una enumeraci&oacute;n</h4> 
+<p>Como ya hemos visto una enumeaci&oacute;n es como una clase, lo que significa que tambien puede definir contructores y m&eacute;todos. Tanto unos como otros siempre deben estar declarados despu&eacute;s de la lista de valores de la enumeraci&oacute;n.</p> 
+<p>Para crear un contructor usamos la misma sintaxis que la de las clases estandares:</p> 
+<div class="highlight highlight-source-java">
+ <pre>        <span class="pl-smi">Nombre_enumeracion</span> (lista_parametros){
+        <span class="pl-c"><span class="pl-c">//</span>TODO</span>
+        }</pre>
+</div> 
+<p>Cuando una enumeraci&oacute;n dispone de constructores con par&aacute;metros , los valores de los argumentos de llamada deben estar especificados en cada uno de los valores de la enumeraci&oacute;n:</p> 
+<div class="highlight highlight-source-java">
+ <pre>       <span class="pl-k">enum</span> <span class="pl-en">Direcciones</span> {
+            <span class="pl-c1">NORTE</span>(<span class="pl-c1">4</span>), <span class="pl-c1">SUR</span>(<span class="pl-c1">2</span>), <span class="pl-c1">ESTE</span>(<span class="pl-c1">2</span>), <span class="pl-c1">OESTE</span>(<span class="pl-c1">3</span>)
+            int distancia;
+            <span class="pl-en">Direcciones</span>(<span class="pl-k">int</span> <span class="pl-v">d</span>) {
+                distancia<span class="pl-k">=</span>d;
+            }
+       }</pre>
+</div> 
+<p>Los valores de <em>distancia</em> se suminstran al constrcutor de Direcciones cuando se hace referencia a los distintos objetos del enumerado: NORTE, SUR etc.</p> 
+<p>Los m&eacute;todos tambi&eacute;n se definen como en las clases por ejemplo:</p> 
+<div class="highlight highlight-source-java">
+ <pre>       <span class="pl-k">enum</span> <span class="pl-en">Direcciones</span> {
+            <span class="pl-c1">NORTE</span>(<span class="pl-c1">4</span>), <span class="pl-c1">SUR</span>(<span class="pl-c1">2</span>), <span class="pl-c1">ESTE</span>(<span class="pl-c1">2</span>), <span class="pl-c1">OESTE</span>(<span class="pl-c1">3</span>)
+            int distancia;
+            <span class="pl-en">Direcciones</span>(<span class="pl-k">int</span> <span class="pl-v">d</span>) {
+                distancia<span class="pl-k">=</span>d;
+            }
+            <span class="pl-k">int</span> <span class="pl-en">getDistancia</span> () {
+                <span class="pl-k">return</span> distancia;
+            }
+       }</pre>
+</div> 
+<p>El siguiente programa nos muestra un ejemplo del uso de la enumeracion Direcciones con todas las caracteristicas menciaonadas en el apartado anterior:</p> 
+<div class="highlight highlight-source-java">
+ <pre>      <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Navegacion</span> {
+            <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-smi">String</span> <span class="pl-v">args</span>[]) {
+                <span class="pl-smi">Barco</span> b <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Barco</span>();
+                <span class="pl-smi">Direcciones</span> d;
+                b<span class="pl-k">.</span>setOrientacion(<span class="pl-smi">Direcciones</span><span class="pl-c1"><span class="pl-k">.</span>OESTE</span>);
+                d<span class="pl-k">=</span>b<span class="pl-k">.</span>getOrientacion();
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Distancia recorrida: <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span> d<span class="pl-k">.</span>getDsitancia());
+            }
+        }</pre>
+</div>
+</body>
+</html>

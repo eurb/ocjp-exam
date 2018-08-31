@@ -22,7 +22,28 @@ Suponiendo que _ex_ es una variable que contiene una referencia a la clase exter
 Externa.Interna in = ex.new Interna();
 ```
 Observese la utilización del operador _new_ precedido del punto y la referencia a la instancia de la clase externa.
-    _Ver Ejemplo_ __*com.test.exam.pcj2.inner.classes.standard*__
+_Ver Ejemplo:_ 
+    
+```java 
+	public class Externa {
+		String s ="Mio";
+		//Definición de la clase interna
+		class Interna {
+			public void muestra () {
+				System.out.println("Objeto interno "+s);
+			}
+		}
+	}		
+	public class Principal {
+		public static void main(String[] args) {
+			Externa ex = new Externa();
+			//Aprenernos esta sintaxis de new
+			Externa.Interna in = ex.new Interna();
+			in.muestra();
+		}
+	}
+```
+
 Como se desprende del ejemplo anterior, __una clase interna tiene acceso al resto de los miembros de la clase externa.__
 
 En el caso de crear el objeto interno desde algún método de la propia clase externa, se puede utilizar la forma normal de crear objetos java:
@@ -48,7 +69,33 @@ Si desde el interior de la clase interna quiere hacerse referencia a la instanci
 ```java
     Clase_externa.this
 ```
-_Ver Ejemplo_ __*com.test.exam.pcj2.inner.classes.This*__
+_Ver Ejemplo:_
+```java
+    public class Principal {
+	
+		public static void main(String[] args) {
+			Externa ex = new Externa();
+			Externa.Interna in = ex.new Interna();
+			in.imprime();
+		}
+
+	}
+
+	class Externa {
+	    public void muestraext() {
+	        System.out.println("Objeto externo ");
+	    }
+	    class Interna {
+	        public void muestrain() {
+	            System.out.println("Objeto interno ");
+	        }
+	         public void imprime() {
+	            this.muestrain();
+	            Externa.this.muestraext();
+	         }
+	    }
+	}
+```
 
 ##### Modificadores para una clase interna Standard
 Una clase interna es un miembro más de la clase, por tanto, en su definición se pueden utilizar los siguientes modificadores:
@@ -74,10 +121,60 @@ Esta situación se corresponde al caso de dos clases anidadas en donde la clase 
 ##### Instanciación de la clase interna local a método
 Una clase interna definida en el interior de un método de otra clase __solamente podrá ser intanciada en el interior de dicho método__ despues de la declaración de la clase interna.
 
-_Ver Ejemplo_ __*com.test.exam.pcj2.inner.classes.in.method*__
+_Ver Ejemplo:_
+
+```java
+	public class Principal {
+		public static void main(String[] args) {
+			Externa ex = new Externa();
+			ex.proceso();
+		}
+	}
+
+	class Externa {
+		void proceso () {
+			class Interna {
+				void muestra() {
+					 System.out.println("Local a método ");
+				}
+			}
+			//Sólo podrá instanciarse en el interior
+			//de proceso() a partir de aquí
+			Interna in = new Interna();
+			in.muestra();
+		}
+	}
+```
 
 Existe otra restricción importante en el uso de este tipo de clases. Se trata del hecho de que __una clase local a método no puede acceder a las variables locales definidas en dicho método,__ salvo que estas estén definidas como _final_(constantes)-
-    _Ver Ejemplo_ __*com.test.exam.pcj2.inner.classes.in.method.variables*__
+_Ver Ejemplo:_ 
+    
+```java
+		public class Externa {
+	
+			String s ="Mio";
+			
+			void proceso () {
+				/*final*/ int p=6;
+				class Interna {
+					void muestra() {
+						//la siguiente instrucción es correcta
+						System.out.println("Local a  Método "+s);
+						//la siguiente instrucción no compilará
+						//porque una clase dentro de un método
+						//no tiene acceso a las variables locales
+						//a menos que la cambiemos a final
+						//y sea una constante
+						//si descomentamos el final de la varianle p
+						//este cpodigo si compilará.
+						System.out.println(p);
+					}
+				}
+				Interna in = new Interna();
+				in.muestra();
+			}
+		}
+```
 
 ##### Modificadores para una clase interna local a método
 Dado ye una clase definida dentro de un método es un elemento local a éste, únicamente podrán utilizarse en su definición  los modifciadores:
@@ -97,7 +194,40 @@ Superclase var = new Superclase () {
 Dónde var será la variable que almacene la instancia de la clase anónima. que será una subclase de Superclase.
 Como se puede observar, la definición de la clase anónima y la creación de una instancia de la misma representan acciones inseparables que se realizán en la misma línea de código.
 
-_Ver Ejemplo_ __*com.test.exam.pcj2.inner.classes.annonymous*__
+_Ver Ejemplo:_ 
+
+```java
+	class Operaciones {
+		public void imprimir () {
+			System.out.println("Imprimir Original");
+		}
+	}
+	
+	class Externa {
+		Operaciones op = new Operaciones() {
+			//Definición de la clase anónima
+			public void imprimir () {
+				System.out.println("Imprimir Anónimo");
+			}
+		}; // la línea de definición de la clase y
+		//creación del objeto termina con ;
+		
+		void proceso () {
+			//llama al método imprimir del objeto
+			//de la clase anónima
+			op.imprimir();
+		}
+	}
+	
+	public class Principal {
+		public static void main(String[] args) {
+			// Intanciación normal de la
+			//clase externa
+			Externa ex = new Externa();
+			ex.proceso();
+		}
+	}
+```
 
 De este ejemplo se deducen dos cosas importantes, en primer lugar la variable _op_ contiene una instancia del objeto de la clase anónima, no de la clase Operaciones. En segundo lugar, dado que la definición de la clase anónima se lleva acabo en una línea de código, esta debe terminar con ;. En este sentido, hay que fijarse bien en el código de las preguntas de examen, pues podemos encontrarnos con definiciones de las clases anónimas donde falte el ";", lo que supone directamente un error de compilación.
 

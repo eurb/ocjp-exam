@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>C:\Users\eroman\workspace-sts-3.9.4.RELEASE\ocjp-exam\src\main\java\com\test\exam\pcj2\threads\.Threads.md.html</title>
+<title>C:\Users\eroman\git\eurb\ocjp-exam\ocjp-exam\src\main\java\com\test\exam\pcj2\threads\.Threads.md.html</title>
 
 
 <style type="text/css">
@@ -653,10 +653,96 @@ function setDocumentScrollTop(ypos)
   </ul> </li> 
  <li> <p>Cuando se crea un objeto thread &eacute;ste pasa al estado de &quot;nuevo&quot;, pero a&uacute;n no se produce la ejecuci&oacute;n de la tarea asociada. Para que esto suceda habr&aacute; que invocar explicitamente al m&eacute;todo <em>start()</em> de cada objeto Thread.</p> </li> 
  <li> <p>El m&eacute;todo <em>start()</em> se encuentra definido en la clase Thread, la llamada a este m&eacute;todo <em>start()</em> provoca que el <em>thread</em> pase al estado de &quot;preparado&quot;. En esta situaci&oacute;n el gestor de tareas de la JVM (<em>thread scheduler</em>) podr&aacute;, en cualquier momento, elegir la tarea para su ejecuci&oacute;n invocando al m&eacute;todo <em>run()</em> del objeto.</p> </li> 
- <li> <p>Todas las tareas que esten en estado &quot;preparado&quot;, estar&aacute;n listas para su ejecuci&oacute;n. siendo responsabilidad del <em>gestor de tareas</em> (<em>thread scheduler</em>) el reparto del tiempo de la CPU entre cada una de ellas y el orden de ejecuci&oacute;n de las mismas. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.extend</em></strong></p> </li> 
+ <li> <p>Todas las tareas que esten en estado &quot;preparado&quot;, estar&aacute;n listas para su ejecuci&oacute;n. siendo responsabilidad del <em>gestor de tareas</em> (<em>thread scheduler</em>) el reparto del tiempo de la CPU entre cada una de ellas y el orden de ejecuci&oacute;n de las mismas:</p> 
+  <div class="highlight highlight-source-java">
+   <pre><span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c"> * Cada tarea en ejecuci&oacute;n est&aacute; representada por un objeto Thread</span>
+<span class="pl-c"> * por tanto, una vez se hata definido la clase o las clases thread, se</span>
+<span class="pl-c"> * deber&aacute; crear tantas intancias de estas clases como tareas se desee</span>
+<span class="pl-c"> * tener en ejecuci&oacute;n concurrente y hace que se ejecuten.</span>
+<span class="pl-c"> <span class="pl-c">*/</span></span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+	<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+		<span class="pl-c"><span class="pl-c">//</span>El siguiente c&oacute;digo se encarga de  crear los obetos</span>
+		<span class="pl-c"><span class="pl-c">//</span>Thread y ponerlos en ejecuci&oacute;n.</span>
+		<span class="pl-smi">Tarea1</span> t1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea1</span>();
+		<span class="pl-smi">Tarea2</span> t2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea2</span>();
+		t1<span class="pl-k">.</span>start();
+		t2<span class="pl-k">.</span>start();
+		<span class="pl-c"><span class="pl-c">//</span>Aunque la clase principal no hereda de thread. el c&oacute;digo </span>
+		<span class="pl-c"><span class="pl-c">//</span>contenido en el m&eacute;todo main() tambien es considerado como una</span>
+		<span class="pl-c"><span class="pl-c">//</span>tarea mas por la jvm. Esto significa ue si hubiera otras </span>
+		<span class="pl-c"><span class="pl-c">//</span>instrucciones despu&eacute;s de las llamadas a start() de los threads</span>
+		<span class="pl-c"><span class="pl-c">//</span>&eacute;stas ser&aacute;n ejecutadas concurrentemente con el resto </span>
+		<span class="pl-c"><span class="pl-c">//</span>de la tareas.</span>
+			
+	}
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Tarea1</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+	<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+		<span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;=</span><span class="pl-c1">100</span>; i<span class="pl-k">++</span>) {
+			<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>El n&uacute;mero es el: <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span>i);
+		}
+	}
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Tarea2</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+	<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+		<span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">1</span>; i <span class="pl-k">&gt;=</span><span class="pl-k">-</span><span class="pl-c1">100</span>; i<span class="pl-k">--</span>) {
+			<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>El n&uacute;mero es el: <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span>i);
+		}
+	}
+}
+
+</pre>
+  </div> </li> 
  <li> <h5> <a id="m&eacute;todos-para-el-control-de-threads" class="anchor" href="#m%C3%A9todos-para-el-control-de-threads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M&eacute;todos para el control de threads</h5> 
   <ol> 
-   <li> <h6> <a id="el-m&eacute;todo-sleep" class="anchor" href="#el-m%C3%A9todo-sleep" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>El m&eacute;todo <em>sleep()</em> </h6> <p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.extend.sleep</em></strong></p> 
+   <li> <h6> <a id="el-m&eacute;todo-sleep" class="anchor" href="#el-m%C3%A9todo-sleep" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>El m&eacute;todo <em>sleep()</em> </h6> <p><em>Ver Ejemplo:</em></p> 
+    <div class="highlight highlight-source-java">
+     <pre>	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Tarea1</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+			<span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;=</span><span class="pl-c1">100</span>; i<span class="pl-k">++</span>) {
+				<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>El n&uacute;mero es el: <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span>i);
+				<span class="pl-c"><span class="pl-c">//</span>Poner a dormir un thread es un mecanimso de </span>
+				<span class="pl-c"><span class="pl-c">//</span>ralentizaci&oacute;n de procesos que se utliza por ejemplo, </span>
+				<span class="pl-c"><span class="pl-c">//</span>cuando las operaciones realizadas por un thread implican</span>
+				<span class="pl-c"><span class="pl-c">//</span> el acceso a dipositivos lentos</span>
+				<span class="pl-k">try</span> {
+					<span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">100</span>);
+				} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+					e<span class="pl-k">.</span>printStackTrace();
+				}
+			}
+		}	
+	}
+	
+	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Tarea2</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+			<span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">1</span>; i <span class="pl-k">&gt;=</span><span class="pl-k">-</span><span class="pl-c1">100</span>; i<span class="pl-k">--</span>) {
+				<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>El n&uacute;mero es el: <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span>i);
+				<span class="pl-k">try</span> {
+					<span class="pl-c"><span class="pl-c">//</span>Hay que tener en cuenta que la llamada al m&eacute;todo sleep(),</span>
+					<span class="pl-c"><span class="pl-c">//</span>sobre un thread puede provocar un excepci&oacute;n de tipo </span>
+					<span class="pl-c"><span class="pl-c">//</span>InterruptedException, que habr&aacute; que capturar.</span>
+					<span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">100</span>);
+				} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+					e<span class="pl-k">.</span>printStackTrace();
+				}
+			}
+		}
+	}
+	
+	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+			<span class="pl-smi">Tarea1</span> t1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea1</span>();
+			<span class="pl-smi">Tarea2</span> t2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea2</span>();
+			t1<span class="pl-k">.</span>start();
+			t2<span class="pl-k">.</span>start();		
+		}
+	}</pre>
+    </div> 
     <ul> 
      <li>Su formato es el siguiente:</li> 
     </ul> 
@@ -674,7 +760,39 @@ function setDocumentScrollTop(ypos)
    <li> <h6> <a id="obtener-el-thread-en-ejecuci&oacute;n" class="anchor" href="#obtener-el-thread-en-ejecuci%C3%B3n" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtener el Thread en ejecuci&oacute;n</h6> <p>La clase Thred dispone de un m&eacute;todo est&aacute;tico <em>currentThread()</em> que permite obtener una referencia al thread actual en ejecuci&oacute;n su formato es:</p> 
     <div class="highlight highlight-source-java">
      <pre>    <span class="pl-k">public</span> <span class="pl-k">static</span>  <span class="pl-smi">Thread</span> currentThread()</pre>
-    </div> <p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.extend.currentThread</em></strong></p> </li> 
+    </div> <p>Ejemplo:</p> 
+    <div class="highlight highlight-source-java">
+     <pre>    <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+			<span class="pl-c"><span class="pl-c">//</span>Se crean tres tareas que solo muestran su nombre por pantalla 100 veces</span>
+			<span class="pl-c"><span class="pl-c">//</span>cada una ejecutandose en modo multitarea.</span>
+			<span class="pl-smi">Tarea</span> t1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>Edgar<span class="pl-pds">&quot;</span></span>);
+			<span class="pl-smi">Tarea</span> t2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>Uriel<span class="pl-pds">&quot;</span></span>);
+			<span class="pl-smi">Tarea</span> t3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>Matias<span class="pl-pds">&quot;</span></span>);
+			t1<span class="pl-k">.</span>start();
+			t2<span class="pl-k">.</span>start();
+			t3<span class="pl-k">.</span>start();
+		}
+	}
+	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Tarea</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+		<span class="pl-k">public</span> <span class="pl-en">Tarea</span>(<span class="pl-smi">String</span> <span class="pl-v">name</span>) {
+			<span class="pl-c"><span class="pl-c">//</span>Utiliza el constructor de Thread para establecer</span>
+			<span class="pl-c"><span class="pl-c">//</span>el nombre de la tarea</span>
+			<span class="pl-c1">super</span>(name);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+		}
+		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+			<span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;=</span><span class="pl-c1">100</span>; i<span class="pl-k">++</span>) {
+				<span class="pl-c"><span class="pl-c">//</span>Muestra el nombre del thread en ejecuci&oacute;n</span>
+				<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Nombre: <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span><span class="pl-smi">Thread</span><span class="pl-k">.</span>currentThread()<span class="pl-k">.</span>getName());
+				<span class="pl-k">try</span> {
+					<span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">100</span>);
+				} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+					e<span class="pl-k">.</span>printStackTrace();
+				}
+			}
+		}
+	}</pre>
+    </div> </li> 
    <li> <h6> <a id="prioridad-de-un-thread" class="anchor" href="#prioridad-de-un-thread" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prioridad de un thread</h6> <p>La prioridad de un <em>thread</em> es un factor importante a tener en cuenta por el gestor de tareas a la hora de repartir la CPU entre las mismas. De forma predeterminada, todo <em>thread</em> tiene asignada una prioridad al moment ode su creaci&oacute;n, la cual es la misma que la del <em>thread</em> que lo crea. Es posible establecer explicitamente una prioridad a una tarea mediante el m&eacute;todo <em>setPriority()</em> de la clase Thread, su formato es:</p> 
     <div class="highlight highlight-source-java">
      <pre>    <span class="pl-k">public</span> <span class="pl-k">void</span> setPriority(<span class="pl-k">int</span> p)</pre>
@@ -701,9 +819,47 @@ function setDocumentScrollTop(ypos)
   </ul> </li> 
  <li> <h5> <a id="implementar-de-la-interfaz-runnable" class="anchor" href="#implementar-de-la-interfaz-runnable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementar de la interfaz <em>Runnable</em> </h5> <p>Es la m&aacute;s com&uacute;n y la que mas se utiliza en lugar de heredar de la clase <em>Thread</em>. Si optamos por esta via las acciones que tenemos que llevar acabo ser&aacute;n:</p> 
   <ul> 
-   <li>Implementar el m&eacute;todo <em>run()</em> de la interfaz <em>Runnable</em> </li> 
-   <li>Creaci&oacute;n y ejecuci&oacute;n de tareas</li> 
-  </ul> <p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.declaration.implement</em></strong></p> 
+   <li> <p>Implementar el m&eacute;todo <em>run()</em> de la interfaz <em>Runnable</em></p> </li> 
+   <li> <p>Creaci&oacute;n y ejecuci&oacute;n de tareas:</p> 
+    <div class="highlight highlight-source-java">
+     <pre> 		 <span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c"> 		 * Si observamos este comportamiento es id&eacute;ntico al modo extend</span>
+<span class="pl-c"> 		 * S&oacute;lo que aqui en lugar de heredar se implementa a la interfaz Ruunable</span>
+<span class="pl-c"> 		 * Y para colocarlos en estado de ejecuci&oacute;n se usan los contructores</span>
+<span class="pl-c"> 		 * sobrecargados de Thread pasandole como param&eacute;tro la interfaz y el nombre</span>
+<span class="pl-c"> 		 <span class="pl-c">*/</span></span>
+ 		<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+ 			<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+ 				<span class="pl-c"><span class="pl-c">//</span>Se crea un &uacute;nico objeto tarearb, el cual</span>
+ 				<span class="pl-c"><span class="pl-c">//</span>es compartido por todos los thread</span>
+ 				<span class="pl-smi">TareaRb</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">TareaRb</span>();
+ 				<span class="pl-c"><span class="pl-c">//</span>Las tareas son instancias de la </span>
+ 				<span class="pl-c"><span class="pl-c">//</span>clase Thread</span>
+ 				<span class="pl-smi">Thread</span> t1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(t, <span class="pl-s"><span class="pl-pds">&quot;</span>Edgar<span class="pl-pds">&quot;</span></span>);
+ 				<span class="pl-smi">Thread</span> t2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(t, <span class="pl-s"><span class="pl-pds">&quot;</span>Uriel<span class="pl-pds">&quot;</span></span>);
+ 				<span class="pl-smi">Thread</span> t3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(t, <span class="pl-s"><span class="pl-pds">&quot;</span>Matias<span class="pl-pds">&quot;</span></span>);
+ 				<span class="pl-c"><span class="pl-c">//</span>Los thread se ponen en estado de ejecuci&oacute;n.</span>
+ 				t1<span class="pl-k">.</span>start();
+ 				t2<span class="pl-k">.</span>start();
+ 				t3<span class="pl-k">.</span>start();
+ 			}
+ 		}
+ 		<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TareaRb</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+ 			<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+ 				<span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;=</span> <span class="pl-c1">100</span>; i<span class="pl-k">++</span>) {
+ 					<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Nombre: <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> <span class="pl-smi">Thread</span><span class="pl-k">.</span>currentThread()<span class="pl-k">.</span>getName());
+ 					<span class="pl-k">try</span> {
+ 						<span class="pl-c"><span class="pl-c">//</span> Pone la tarea a dormir</span>
+ 						<span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">100</span>);
+ 					} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+ 						<span class="pl-c"><span class="pl-c">//</span> TODO Auto-generated catch block</span>
+ 						e<span class="pl-k">.</span>printStackTrace();
+ 					}
+ 				}
+ 			}
+ 		}</pre>
+    </div> </li> 
+  </ul> 
   <ol> 
    <li> <h6> <a id="creaci&oacute;n-y-ejecuci&oacute;n-de-tareas" class="anchor" href="#creaci%C3%B3n-y-ejecuci%C3%B3n-de-tareas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creaci&oacute;n y ejecuci&oacute;n de tareas</h6> <p>Toda tarea en ejecuci&oacute;n es un thread. Esto significa que habrpa que crear <strong>tantos objetos de la clase Thread como tareas queramos poner en ejecuci&oacute;n</strong></p> <p>Para crear objetos Thread debemos usar alguno de los siguientes constructores de la clase Thread:</p> 
     <div class="highlight highlight-source-java">
@@ -719,7 +875,94 @@ function setDocumentScrollTop(ypos)
     {
         <span class="pl-c"><span class="pl-c">//</span>bloque de instrucciones a sincronizar</span>
     }</pre>
-  </div> <p>En el momento en que un <em>thread</em> entra en un bloque sincronizado, adquiere el monitor del objeto especificado, bloquendo la entrada de otros <em>threads</em> al bloque hata que el monitor del objeto sea liberado,, hecho que sucede autom&aacute;ticamente cunado el <em>thread</em> finaliza la ejecuci&oacute;n del bloque sincronizado. A partir de este instante, el monitor del objeto queda libre y cualquier <em>thread</em> que este a la espera de entrar en el bloque sincronizado puede adquirirlo. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.syncronized</em></strong></p> </li> 
+  </div> <p>En el momento en que un <em>thread</em> entra en un bloque sincronizado, adquiere el monitor del objeto especificado, bloquendo la entrada de otros <em>threads</em> al bloque hata que el monitor del objeto sea liberado,, hecho que sucede autom&aacute;ticamente cunado el <em>thread</em> finaliza la ejecuci&oacute;n del bloque sincronizado. A partir de este instante, el monitor del objeto queda libre y cualquier <em>thread</em> que este a la espera de entrar en el bloque sincronizado puede adquirirlo. <em>Ver Ejemplo:</em></p> </li> 
+</ol> 
+<div class="highlight highlight-source-java">
+ <pre>       <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Accesos</span> {
+  		<span class="pl-k">private</span> <span class="pl-k">int</span> cont;
+  		<span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">getCont</span>() {
+  			<span class="pl-k">return</span> cont;
+  		}
+  		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">setCont</span>(<span class="pl-k">int</span> <span class="pl-v">cont</span>) {
+  			<span class="pl-c1">this</span><span class="pl-k">.</span>cont <span class="pl-k">=</span> cont;
+  		}
+  	}
+  	
+  	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Tarea</span> <span class="pl-k">implements</span> <span class="pl-e">Runnable</span> {
+  		<span class="pl-smi">Accesos</span> ac;
+  		<span class="pl-k">public</span> <span class="pl-en">Tarea</span>() {
+  			<span class="pl-c1">super</span>();
+  			<span class="pl-c1">this</span><span class="pl-k">.</span>ac <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Accesos</span>();
+  		}
+  	
+  		<span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c">  		 * La sincronizaci&oacute;n de un bloque de c&oacute;digo consiste en impedir la entrada de un</span>
+<span class="pl-c">  		 * thread al bloque, hata que &eacute;l &uacute;ltimo thread en entrar en dicho bloque</span>
+<span class="pl-c">  		 * finalice la ejecuci&oacute;n del mismo, de esta forma se garantiza que todas las</span>
+<span class="pl-c">  		 * instrucciones del bloque son ejecutadas completamente por un thread antes de</span>
+<span class="pl-c">  		 * que otro entre.</span>
+<span class="pl-c">  		 * </span>
+<span class="pl-c">  		 * En este ejemplo al agregas la palabra syncronized eveitamos que otro thread</span>
+<span class="pl-c">  		 * corrmpa el dato Cont.</span>
+<span class="pl-c">  		 * </span>
+<span class="pl-c">  		 * Cada objeto tiene un monitor asociado o cerrojo, con esto un threead sabe que</span>
+<span class="pl-c">  		 * esta sincronizando un cierto tipo de objeto, una vez que termina, el sheduler</span>
+<span class="pl-c">  		 * toma otro thread que este en estado de espera y de nuevo sincroniza el objeto</span>
+<span class="pl-c">  		 * espeicifado o bien puede ser un bloque de c&oacute;digo.</span>
+<span class="pl-c">  		 * </span>
+<span class="pl-c">  		 * Si quitamos el bloque syncronized podemos ver como se corrmple.</span>
+<span class="pl-c">  		 <span class="pl-c">*/</span></span>
+  		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+  			<span class="pl-k">synchronized</span> (ac) { <span class="pl-c"><span class="pl-c">//</span>Quitar para ver como se comporta de forma incorrecta.</span>
+  				<span class="pl-k">int</span> actual <span class="pl-k">=</span> ac<span class="pl-k">.</span>getCont();
+  				actual<span class="pl-k">++</span>;
+  	
+  				<span class="pl-k">try</span> {
+  					<span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">0</span>);
+  				} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+  					<span class="pl-c"><span class="pl-c">//</span> TODO Auto-generated catch block</span>
+  					e<span class="pl-k">.</span>printStackTrace();
+  				}
+  				ac<span class="pl-k">.</span>setCont(actual);
+  				<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Total Accesos:<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> ac<span class="pl-k">.</span>getCont());
+  			}
+  		}
+  	}
+  	
+  	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Ejecucion</span> {
+  		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+  			<span class="pl-smi">Tarea</span> tr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Tarea</span>();
+  			<span class="pl-smi">Thread</span> t1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(tr);
+  			<span class="pl-smi">Thread</span> t2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(tr);
+  			<span class="pl-smi">Thread</span> t3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Thread</span>(tr);
+  			t1<span class="pl-k">.</span>start();
+  			t2<span class="pl-k">.</span>start();
+  			t3<span class="pl-k">.</span>start();
+  			<span class="pl-c"><span class="pl-c">//</span>Descomentamos para probar que los m&eacute;todos</span>
+  			<span class="pl-c"><span class="pl-c">//</span>wait, notify y notifyAll solo funicinan</span>
+  			<span class="pl-c"><span class="pl-c">//</span> con la sincronizacion</span>
+  			<span class="pl-c"><span class="pl-c">//</span>new Ejecucion().m1();</span>
+  		}
+  		
+  		<span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c">  		 * M&eacute;todos wait(), notify() y notifyAll() </span>
+<span class="pl-c">  		 * ◦La llamada a estos m&eacute;todos s&oacute;lo puede realizarse </span>
+<span class="pl-c">  		 * en el interior de un bloque o m&eacute;todo synchronized</span>
+<span class="pl-c">  		 <span class="pl-c">*/</span></span>
+  		<span class="pl-k">public</span> <span class="pl-c"><span class="pl-c">/*</span>synchronized<span class="pl-c">*/</span></span> <span class="pl-k">void</span> <span class="pl-en">m1</span>() {
+  			<span class="pl-c"><span class="pl-c">//</span>Descomentar para probar con notify y notifyAll</span>
+  			<span class="pl-c"><span class="pl-c">//</span>notifyAll();</span>
+  			<span class="pl-c"><span class="pl-c">//</span>notify();</span>
+  			<span class="pl-k">try</span> {
+  				wait(<span class="pl-c1">100</span>);
+  			} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+  				<span class="pl-c"><span class="pl-c">//</span> TODO Auto-generated catch block</span>
+  				e<span class="pl-k">.</span>printStackTrace();
+  			}
+  		}
+  	}</pre>
+</div> 
+<ol> 
  <li> <h5> <a id="m&eacute;todos-de-comunicaci&oacute;n-de-la-clase-object" class="anchor" href="#m%C3%A9todos-de-comunicaci%C3%B3n-de-la-clase-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>M&eacute;todos de comunicaci&oacute;n de la clase Object</h5> <p>Existen tres m&eacute;todos en la clase object que permiten enviar se&ntilde;ales de unos <em>threds</em> a otros, cuando estos est&aacute;n ejecutando bloques de c&oacute;digo <em>synchronized</em>, condicionando la ejecuci&oacute;n de uno de estos bloques a la del otro. Estos m&eacute;todos son <strong>invocado en el interior de un bloque <em>synchronized</em></strong> sobre el objeto del que se adquiere el monitor los m&eacute;todos son:</p> 
   <ul> 
    <li> <p><strong>wait().</strong> Cuando un thread invoca a este m&eacute;todo sobre un objeto, libera el monitor del mismo, y pasa al estado de &quot;esperando&quot;, estado en el que permanecer&aacute; hasta que reciba una se&ntilde;al por parte del <em>thread</em> que en ese momento tenga el monitor del objeto para poder continuar con su ejecuci&oacute;n la sintaxis es:</p> 
@@ -730,8 +973,57 @@ function setDocumentScrollTop(ypos)
      <pre>    <span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">void</span>  wait(<span class="pl-k">int</span> milisegundos) throws <span class="pl-smi">InterruptedException</span></pre>
     </div> <p>Si transcurrido ese tiempo el <em>thread</em> no h recibido una se&ntilde;al para salir del estado de espera, autom&aacute;ticamente pasa a &quot;preparado&quot;.</p> </li> 
    <li> <p><strong>notify().</strong> Al invocarlo se env&iacute;a una se&ntilde;al al <em>thread</em> que hizo la llamada a <em>wait()</em> sobre el objeto. A partir de este momento, el <em>thread</em> podr&aacute; continuar su ejecuci&oacute;n, pasando al estado de &quot;preparado&quot;.</p> </li> 
-   <li> <p><strong>notifyAll().</strong> Si hay varios threads que han invocado al m&eacute;todo <em>wait()</em> sobre el objeto, la llamada a <em>notify()</em> afectar&aacute; solamente a uno de ellos. Para notificar a todos los <em>threads</em> que estan a la espera se utiliza <em>notifyAll()</em>. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.threads.comunication</em></strong></p> </li> 
-  </ul> </li> 
+   <li> <p><strong>notifyAll().</strong> Si hay varios threads que han invocado al m&eacute;todo <em>wait()</em> sobre el objeto, la llamada a <em>notify()</em> afectar&aacute; solamente a uno de ellos. Para notificar a todos los <em>threads</em> que estan a la espera se utiliza <em>notifyAll()</em>. <em>Ver Ejemplo:</em></p> </li> 
+  </ul> 
+  <div class="highlight highlight-source-java">
+   <pre>       <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Proceso</span> <span class="pl-k">extends</span> <span class="pl-e">Thread</span> {
+   	   		<span class="pl-k">private</span> <span class="pl-k">int</span> valor;
+   			<span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">getTotal</span>() {
+   				<span class="pl-c"><span class="pl-c">//</span>Devuelve el calculo realizado</span>
+   				<span class="pl-k">return</span> valor;
+   			}
+   		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>() {
+   			<span class="pl-c"><span class="pl-c">//</span>bloque de c&oacute;digo sincronizado donde</span>
+   			<span class="pl-c"><span class="pl-c">//</span>se obtiene el monitor del propio objeto</span>
+   			<span class="pl-c"><span class="pl-c">//</span>Proceso para que ningun otro thread pueda</span>
+   			<span class="pl-c"><span class="pl-c">//</span>utilizarlo mientras completa el c&aacute;lculo</span>
+   			<span class="pl-k">synchronized</span> (<span class="pl-c1">this</span>) {
+   				<span class="pl-k">for</span>(<span class="pl-k">int</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>;i<span class="pl-k">&lt;=</span><span class="pl-c1">100</span>;i<span class="pl-k">++</span>)
+   				{
+   					valor<span class="pl-k">+=</span>i;
+   				}
+   				<span class="pl-c1">this</span><span class="pl-k">.</span>notify(); <span class="pl-c"><span class="pl-c">//</span>avisa de que ha </span>
+   				<span class="pl-c"><span class="pl-c">//</span>finalizado el c&aacute;lculo al</span>
+   				<span class="pl-c"><span class="pl-c">//</span>thread que invoco a wait()</span>
+   				<span class="pl-c"><span class="pl-c">//</span>sobre el objeto, a fin de que</span>
+   				<span class="pl-c"><span class="pl-c">//</span>pueda continuar la ejecuci&oacute;n.</span>
+   			}
+   		}
+   	}
+   	
+   	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+   		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+   			<span class="pl-c"><span class="pl-c">//</span> crea un objeto de la clase que realiza</span>
+   			<span class="pl-c"><span class="pl-c">//</span> el c&aacute;lculo y lo pone en ejecuci&oacute;n</span>
+   			<span class="pl-c"><span class="pl-c">//</span> concurrente con main() (recordemos que main es tambi&eacute;n un thread,</span>
+   			<span class="pl-c"><span class="pl-c">//</span> conocido mas comunmente como  thread principal)</span>
+   			<span class="pl-smi">Proceso</span> p <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Proceso</span>();
+   			p<span class="pl-k">.</span>start();
+   			<span class="pl-c"><span class="pl-c">//</span>aqui el m&eacute;todo main podr&iacute;a realizar</span>
+   			<span class="pl-c"><span class="pl-c">//</span>cualquier otra tarea</span>
+   			<span class="pl-k">synchronized</span> (p) {
+   				<span class="pl-k">try</span> {
+   					p<span class="pl-k">.</span>wait(); <span class="pl-c"><span class="pl-c">//</span>espera a que finalice</span>
+   					<span class="pl-c"><span class="pl-c">//</span> el c&aacute;lculo</span>
+   				} <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e) {
+   					<span class="pl-c"><span class="pl-c">//</span> TODO Auto-generated catch block</span>
+   					e<span class="pl-k">.</span>printStackTrace();
+   				}
+   			}		
+   			<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>La suma es <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> p<span class="pl-k">.</span>getTotal());
+   		}
+   	}</pre>
+  </div> </li> 
 </ol>
 </body>
 </html>

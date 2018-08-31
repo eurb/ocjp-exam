@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>C:\Users\eroman\workspace-sts-3.9.4.RELEASE\ocjp-exam\src\main\java\com\test\exam\pcj2\inner\classes\.InnerClasses.md.html</title>
+<title>C:\Users\eroman\git\eurb\ocjp-exam\ocjp-exam\src\main\java\com\test\exam\pcj2\inner\classes\.InnerClasses.md.html</title>
 
 
 <style type="text/css">
@@ -656,7 +656,27 @@ function setDocumentScrollTop(ypos)
 <div class="highlight highlight-source-java">
  <pre><span class="pl-smi">Externa</span><span class="pl-k">.</span><span class="pl-smi">Interna</span> in <span class="pl-k">=</span> ex<span class="pl-k">.</span><span class="pl-k">new</span> <span class="pl-smi">Interna</span>();</pre>
 </div> 
-<p>Observese la utilizaci&oacute;n del operador <em>new</em> precedido del punto y la referencia a la instancia de la clase externa. <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.inner.classes.standard</em></strong> Como se desprende del ejemplo anterior, <strong>una clase interna tiene acceso al resto de los miembros de la clase externa.</strong></p> 
+<p>Observese la utilizaci&oacute;n del operador <em>new</em> precedido del punto y la referencia a la instancia de la clase externa. <em>Ver Ejemplo:</em></p> 
+<div class="highlight highlight-source-java">
+ <pre>	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Externa</span> {
+		<span class="pl-smi">String</span> s <span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&quot;</span>Mio<span class="pl-pds">&quot;</span></span>;
+		<span class="pl-c"><span class="pl-c">//</span>Definici&oacute;n de la clase interna</span>
+		<span class="pl-k">class</span> <span class="pl-en">Interna</span> {
+			<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">muestra</span> () {
+				<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Objeto interno <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span>s);
+			}
+		}
+	}		
+	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+			<span class="pl-smi">Externa</span> ex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Externa</span>();
+			<span class="pl-c"><span class="pl-c">//</span>Aprenernos esta sintaxis de new</span>
+			<span class="pl-smi">Externa</span><span class="pl-k">.</span><span class="pl-smi">Interna</span> in <span class="pl-k">=</span> ex<span class="pl-k">.</span><span class="pl-k">new</span> <span class="pl-smi">Interna</span>();
+			in<span class="pl-k">.</span>muestra();
+		}
+	}</pre>
+</div> 
+<p>Como se desprende del ejemplo anterior, <strong>una clase interna tiene acceso al resto de los miembros de la clase externa.</strong></p> 
 <p>En el caso de crear el objeto interno desde alg&uacute;n m&eacute;todo de la propia clase externa, se puede utilizar la forma normal de crear objetos java:</p> 
 <div class="highlight highlight-source-java">
  <pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Externa</span> {
@@ -679,7 +699,33 @@ function setDocumentScrollTop(ypos)
 <div class="highlight highlight-source-java">
  <pre>    <span class="pl-smi">Clase_externa</span><span class="pl-k">.</span><span class="pl-c1">this</span></pre>
 </div> 
-<p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.inner.classes.This</em></strong></p> 
+<p><em>Ver Ejemplo:</em></p> 
+<div class="highlight highlight-source-java">
+ <pre>    <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+	
+		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+			<span class="pl-smi">Externa</span> ex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Externa</span>();
+			<span class="pl-smi">Externa</span><span class="pl-k">.</span><span class="pl-smi">Interna</span> in <span class="pl-k">=</span> ex<span class="pl-k">.</span><span class="pl-k">new</span> <span class="pl-smi">Interna</span>();
+			in<span class="pl-k">.</span>imprime();
+		}
+
+	}
+
+	<span class="pl-k">class</span> <span class="pl-en">Externa</span> {
+	    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">muestraext</span>() {
+	        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Objeto externo <span class="pl-pds">&quot;</span></span>);
+	    }
+	    <span class="pl-k">class</span> <span class="pl-en">Interna</span> {
+	        <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">muestrain</span>() {
+	            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Objeto interno <span class="pl-pds">&quot;</span></span>);
+	        }
+	         <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">imprime</span>() {
+	            <span class="pl-c1">this</span><span class="pl-k">.</span>muestrain();
+	            <span class="pl-smi">Externa</span><span class="pl-k">.</span><span class="pl-c1">this</span><span class="pl-k">.</span>muestraext();
+	         }
+	    }
+	}</pre>
+</div> 
 <h5> <a id="modificadores-para-una-clase-interna-standard" class="anchor" href="#modificadores-para-una-clase-interna-standard" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modificadores para una clase interna Standard</h5> 
 <p>Una clase interna es un miembro m&aacute;s de la clase, por tanto, en su definici&oacute;n se pueden utilizar los siguientes modificadores:</p> 
 <ul> 
@@ -704,8 +750,56 @@ function setDocumentScrollTop(ypos)
 </div> 
 <h5> <a id="instanciaci&oacute;n-de-la-clase-interna-local-a-m&eacute;todo" class="anchor" href="#instanciaci%C3%B3n-de-la-clase-interna-local-a-m%C3%A9todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instanciaci&oacute;n de la clase interna local a m&eacute;todo</h5> 
 <p>Una clase interna definida en el interior de un m&eacute;todo de otra clase <strong>solamente podr&aacute; ser intanciada en el interior de dicho m&eacute;todo</strong> despues de la declaraci&oacute;n de la clase interna.</p> 
-<p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.inner.classes.in.method</em></strong></p> 
-<p>Existe otra restricci&oacute;n importante en el uso de este tipo de clases. Se trata del hecho de que <strong>una clase local a m&eacute;todo no puede acceder a las variables locales definidas en dicho m&eacute;todo,</strong> salvo que estas est&eacute;n definidas como <em>final</em>(constantes)- <em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.inner.classes.in.method.variables</em></strong></p> 
+<p><em>Ver Ejemplo:</em></p> 
+<div class="highlight highlight-source-java">
+ <pre>	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+			<span class="pl-smi">Externa</span> ex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Externa</span>();
+			ex<span class="pl-k">.</span>proceso();
+		}
+	}
+
+	<span class="pl-k">class</span> <span class="pl-en">Externa</span> {
+		<span class="pl-k">void</span> <span class="pl-en">proceso</span> () {
+			<span class="pl-k">class</span> <span class="pl-en">Interna</span> {
+				<span class="pl-k">void</span> <span class="pl-en">muestra</span>() {
+					 <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Local a m&eacute;todo <span class="pl-pds">&quot;</span></span>);
+				}
+			}
+			<span class="pl-c"><span class="pl-c">//</span>S&oacute;lo podr&aacute; instanciarse en el interior</span>
+			<span class="pl-c"><span class="pl-c">//</span>de proceso() a partir de aqu&iacute;</span>
+			<span class="pl-smi">Interna</span> in <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Interna</span>();
+			in<span class="pl-k">.</span>muestra();
+		}
+	}</pre>
+</div> 
+<p>Existe otra restricci&oacute;n importante en el uso de este tipo de clases. Se trata del hecho de que <strong>una clase local a m&eacute;todo no puede acceder a las variables locales definidas en dicho m&eacute;todo,</strong> salvo que estas est&eacute;n definidas como <em>final</em>(constantes)- <em>Ver Ejemplo:</em></p> 
+<div class="highlight highlight-source-java">
+ <pre>		<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Externa</span> {
+	
+			<span class="pl-smi">String</span> s <span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&quot;</span>Mio<span class="pl-pds">&quot;</span></span>;
+			
+			<span class="pl-k">void</span> <span class="pl-en">proceso</span> () {
+				<span class="pl-c"><span class="pl-c">/*</span>final<span class="pl-c">*/</span></span> <span class="pl-k">int</span> p<span class="pl-k">=</span><span class="pl-c1">6</span>;
+				<span class="pl-k">class</span> <span class="pl-en">Interna</span> {
+					<span class="pl-k">void</span> <span class="pl-en">muestra</span>() {
+						<span class="pl-c"><span class="pl-c">//</span>la siguiente instrucci&oacute;n es correcta</span>
+						<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Local a  M&eacute;todo <span class="pl-pds">&quot;</span></span><span class="pl-k">+</span>s);
+						<span class="pl-c"><span class="pl-c">//</span>la siguiente instrucci&oacute;n no compilar&aacute;</span>
+						<span class="pl-c"><span class="pl-c">//</span>porque una clase dentro de un m&eacute;todo</span>
+						<span class="pl-c"><span class="pl-c">//</span>no tiene acceso a las variables locales</span>
+						<span class="pl-c"><span class="pl-c">//</span>a menos que la cambiemos a final</span>
+						<span class="pl-c"><span class="pl-c">//</span>y sea una constante</span>
+						<span class="pl-c"><span class="pl-c">//</span>si descomentamos el final de la varianle p</span>
+						<span class="pl-c"><span class="pl-c">//</span>este cpodigo si compilar&aacute;.</span>
+						<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(p);
+					}
+				}
+				<span class="pl-smi">Interna</span> in <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Interna</span>();
+				in<span class="pl-k">.</span>muestra();
+			}
+		}</pre>
+</div> 
 <h5> <a id="modificadores-para-una-clase-interna-local-a-m&eacute;todo" class="anchor" href="#modificadores-para-una-clase-interna-local-a-m%C3%A9todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modificadores para una clase interna local a m&eacute;todo</h5> 
 <p>Dado ye una clase definida dentro de un m&eacute;todo es un elemento local a &eacute;ste, &uacute;nicamente podr&aacute;n utilizarse en su definici&oacute;n los modifciadores:</p> 
 <ul> 
@@ -722,7 +816,39 @@ function setDocumentScrollTop(ypos)
 };</pre>
 </div> 
 <p>D&oacute;nde var ser&aacute; la variable que almacene la instancia de la clase an&oacute;nima. que ser&aacute; una subclase de Superclase. Como se puede observar, la definici&oacute;n de la clase an&oacute;nima y la creaci&oacute;n de una instancia de la misma representan acciones inseparables que se realiz&aacute;n en la misma l&iacute;nea de c&oacute;digo.</p> 
-<p><em>Ver Ejemplo</em> <strong><em>com.test.exam.pcj2.inner.classes.annonymous</em></strong></p> 
+<p><em>Ver Ejemplo:</em></p> 
+<div class="highlight highlight-source-java">
+ <pre>	<span class="pl-k">class</span> <span class="pl-en">Operaciones</span> {
+		<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">imprimir</span> () {
+			<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Imprimir Original<span class="pl-pds">&quot;</span></span>);
+		}
+	}
+	
+	<span class="pl-k">class</span> <span class="pl-en">Externa</span> {
+		<span class="pl-smi">Operaciones</span> op <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Operaciones</span>() {
+			<span class="pl-c"><span class="pl-c">//</span>Definici&oacute;n de la clase an&oacute;nima</span>
+			<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">imprimir</span> () {
+				<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">&quot;</span>Imprimir An&oacute;nimo<span class="pl-pds">&quot;</span></span>);
+			}
+		}; <span class="pl-c"><span class="pl-c">//</span> la l&iacute;nea de definici&oacute;n de la clase y</span>
+		<span class="pl-c"><span class="pl-c">//</span>creaci&oacute;n del objeto termina con ;</span>
+		
+		<span class="pl-k">void</span> <span class="pl-en">proceso</span> () {
+			<span class="pl-c"><span class="pl-c">//</span>llama al m&eacute;todo imprimir del objeto</span>
+			<span class="pl-c"><span class="pl-c">//</span>de la clase an&oacute;nima</span>
+			op<span class="pl-k">.</span>imprimir();
+		}
+	}
+	
+	<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Principal</span> {
+		<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+			<span class="pl-c"><span class="pl-c">//</span> Intanciaci&oacute;n normal de la</span>
+			<span class="pl-c"><span class="pl-c">//</span>clase externa</span>
+			<span class="pl-smi">Externa</span> ex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Externa</span>();
+			ex<span class="pl-k">.</span>proceso();
+		}
+	}</pre>
+</div> 
 <p>De este ejemplo se deducen dos cosas importantes, en primer lugar la variable <em>op</em> contiene una instancia del objeto de la clase an&oacute;nima, no de la clase Operaciones. En segundo lugar, dado que la definici&oacute;n de la clase an&oacute;nima se lleva acabo en una l&iacute;nea de c&oacute;digo, esta debe terminar con ;. En este sentido, hay que fijarse bien en el c&oacute;digo de las preguntas de examen, pues podemos encontrarnos con definiciones de las clases an&oacute;nimas donde falte el &quot;;&quot;, lo que supone directamente un error de compilaci&oacute;n.</p> 
 <p>Como ya se ha indicado antes, tambi&eacute;n se puede definir una clase an&oacute;nima a partir de una interfaz:</p> 
 <div class="highlight highlight-source-java">
