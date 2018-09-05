@@ -85,13 +85,13 @@ public class Logger {
  * 
  * En un prinicpio se puede pensar que la correcta es la B. pensando que convieriendo el StringBuilder
  * a StringBuffer serpa suficiente, sin emabargo StringBuffer si es synchronized de forma interna, pero
- * nada nos garantiza que m�ltiples Threads invoquen al mpetodo append al mismo tiempo, por lo que
+ * nada nos garantiza que múltiples Threads invoquen al mpetodo append al mismo tiempo, por lo que
  * esta opción no es la correcta.
  * 
  * Sincronizando los métodos públicos es suficiente para que sea thread safe, asi que la opción F es falsa
  * ya que si se puede hacer thread safe a estos métodos.
  * 
  * Finalemnte la C y la D no son correctas ya que ambos métodos deben ser sincronizados ya que si solo
- * ponemos un solo m�todo sincronnizado entonces caemos en lo mismo una esta a salvo y el otro no
+ * ponemos un solo método sincronnizado entonces caemos en lo mismo una esta a salvo y el otro no
  * por lo que ambos deben ser synchronized, entonces la respuesta correcta es E.
  * */
