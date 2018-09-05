@@ -63,7 +63,7 @@ Answer:
 	
 	A is incorrect because it is not synchronized; therefore, there is no guarantee that the values 
 	added by the read() method belong to the same pair. C and D are incorrect; 
-	only objects can be used to synchronize on. E fails� it is not possible to select 
+	only objects can be used to synchronize on. E fails, it is not possible to select 
 	other objects (even this) to synchronize on when declaring a method as synchronized. (Obj. 4.3)
 	
 	
