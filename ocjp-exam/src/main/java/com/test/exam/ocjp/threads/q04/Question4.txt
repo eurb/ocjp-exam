@@ -63,7 +63,7 @@ Answer:
 	
 	A is incorrect because it is not synchronized; therefore, there is no guarantee that the values 
 	added by the read() method belong to the same pair. C and D are incorrect; 
-	only objects can be used to synchronize on. E fails— it is not possible to select 
+	only objects can be used to synchronize on. E failsï¿½ it is not possible to select 
 	other objects (even this) to synchronize on when declaring a method as synchronized. (Obj. 4.3)
 	
 	
@@ -71,15 +71,15 @@ Answer:
 	
 	
 	
-Mi explicación
+Mi explicaciÃ³n
 	Analizando las opciones:
-	A. no es correcto ya que no esta siendo sinronizado no hay mas.
+	A. no es correcto ya que no esta siendo sincronizado no hay mas.
 	
-	C y D estan intentando sincronizar un Int, pero para obetner el lock de un objeto este debe ser un onbejto
+	C y D estan intentando sincronizar un Int, pero para obtener el lock de un objeto este debe ser un objeto
 		y no un primitivo.
 		
-	E es incorrecto esa sintaxys no esta permitida
+	E es incorrecto esa sintaxis no esta permitida
 	
-	B y F son las correctas ya que con B lso métodos son marcados como synchronized, entonces el thread obtiene
-		el log de ese objeto antes de preoceder a sumar los vaores, la F es correcta esa sintaxis bloquea el objeto
+	B y F son las correctas ya que con B los mÃ©todos son marcados como synchronized, entonces el thread obtiene
+		el log de ese objeto antes de proceder a sumar los valores, la F es correcta esa sintaxis bloquea el objeto
 		actual con this.

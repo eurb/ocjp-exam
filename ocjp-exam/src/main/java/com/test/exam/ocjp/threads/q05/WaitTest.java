@@ -86,26 +86,26 @@ package com.test.exam.ocjp.threads.q05;
 
 
 /*
- * Mi explicaciÛn:
- * Puedes irte con la finta de que la respuesta es B. 1 2 3 pero no es asÌ, todo compila perfecto
+ * Mi explicaci√≥n:
+ * Puedes irte con la finta de que la respuesta es B. 1 2 3 pero no es as√≠, todo compila perfecto
  * Analizamos las respuetsas:
  * 
- * A es incorrecto ya que dice que falla porque no es tratada la excpeciÛn IllegalMonitorStateException, esta
- *  excepciÛn es unchecked o no vrificada por lo que no hay que atraparla, adem·s el mÈtodo wait lanza un
+ * A es incorrecto ya que dice que falla porque no es tratada la excpeci√≥n IllegalMonitorStateException, esta
+ *  excepci√≥n es unchecked o no vrificada por lo que no hay que atraparla, adem√°s el m√©todo wait lanza un
  *  InterruptedException la cual si es checked o verificada y esta siendo tratada.
  *  
  * B y C son incorrectas ya que este programa queda en espera para siempre y nunca llega a imprimir el 3. Esto es la
  * clave ya que todo parece estar bien, pero nadie le notifica a main que el recurso ya se desbloqueo
  * por lo que se queda congelado.
  * 
- * E es incorrecto ya que la excpeciÛn IllegalMonitorStateException nunca se va a lanzar porque wait() esta bien definido y el objeto args
- * que es el que manda a llamar a wait si esta dentro de un bloque synchronized osea esta obteniendo su minitor de args.
+ * E es incorrecto ya que la excpeci√≥n IllegalMonitorStateException nunca se va a lanzar porque wait() esta bien definido y el objeto args
+ * que es el que manda a llamar a wait si esta dentro de un bloque synchronized osea esta obteniendo su monitor de args.
  * 
- * F es incorrect oporque cualquier onejto puede usar la sincrobizaciÛn
+ * F es incorrect porque cualquier objeto puede usar la sincrobizaci√≥n
  * 
  * Entonces la respuetsa CORRECTA es D imprime solo 1 y 2 ya que despues de ejecutar wait() main se queda esperando
  * por siempre y  queda congelado.
  * Si le hubieramos pasado un tiempo de espera en ms a wait este se iba a esperar ese tiempo
- * pero despues hubiera notificad de forma autom·tica y entonces si hubiera imprimdo 1 2 3
+ * pero despues hubiera notificado de forma autom√°tica y entonces si hubiera imprimdo 1 2 3
  * 
  * */

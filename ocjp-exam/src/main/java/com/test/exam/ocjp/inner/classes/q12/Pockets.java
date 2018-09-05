@@ -75,8 +75,8 @@ Answer:
 */
 
 /*
-Mi Explicación:
-	Pareciera que todo es correcto incluso la intrucción Sorter s = new Sorter(); pero no es aso
-	ya que como se explica la clase Sorter debe ser delcarada como static, para que sea puesa
-	usar dentro del método static main.
+Mi ExplicaciÃ³n:
+	Pareciera que todo es correcto incluso la intrucciÃ³n Sorter s = new Sorter(); 
+	pero no es asi ya que como se explica la clase Sorter debe ser delcarada 
+	como static, para que sea pueda usar dentro del mÃ©todo static main.
 */

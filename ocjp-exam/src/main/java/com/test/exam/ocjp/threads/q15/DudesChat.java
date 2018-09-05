@@ -86,18 +86,18 @@ public class DudesChat implements Runnable {
 
 
 
-/* Mi explicaciÛn:
+/* Mi explicaci√≥n:
  * 
- * Si analizamos el cÛdigo tomando en cuenta primero I. synchronized void chat(long id),
- * vemos que la salida para este mÈtodo ser· yo yo dude dude, sin embargo est· opciÛn
+ * Si analizamos el c√≥digo tomando en cuenta primero I. synchronized void chat(long id),
+ * vemos que la salida para este m√©todo ser√° yo yo dude dude, sin embargo est√° opci√≥n
  * no aparece en las que se muestran, entonces la A, B y C que quedan descartadas porque
- * la compilaciÛn no falla ni hay excpeciÛn.
+ * la compilaci√≥n no falla ni hay excpeci√≥n.
  * 
  * El D no es porque como vimos la salida para el I. ES yo yo dude dude.
- * El E. no es porque igual como vimos para un synchorized la salisa es yo yo dude
+ * El E. no es porque igual como vimos para un synchroized la salida es yo yo dude
  * 	y en esta opcion aparece como que el primer es dude por lo que tampoco es.
- * Final mente la opciÛn F. es la correcta porque el II. No es sincronizado y por lo otanto
- * puede chocolatear o mezclar la info, lo que es seguro es que en cualquier caso siempre comenzar·
- * por dude y esta es la que mas se aproxima en ese sentudi
+ * Finalmente la opci√≥n F. es la correcta porque el II. No es sincronizado y por lo tanto
+ * puede chocolatear o mezclar la info, lo que es seguro es que en cualquier caso siempre comenzar√°
+ * por dude y esta es la que mas se aproxima en ese sentido
  * 
  * */

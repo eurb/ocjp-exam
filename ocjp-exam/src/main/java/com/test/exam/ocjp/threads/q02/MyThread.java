@@ -73,4 +73,4 @@ class MyThread extends Thread {
 //starts with a value of 0 and ends with a value of 2. E is incorrect based on the above. (Obj. 4.1)
 
 
-//No hay mas explicación mas que la que se indica.
+//No hay mas explicaciÃ³n mas que la que se indica.

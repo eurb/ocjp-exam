@@ -75,6 +75,6 @@ defined in class Object.
 	A, B, C, and D are incorrect based on the program logic described above.
 */
 
-/*Mi explicaciÛn:
- * No hay m·s la E es correcta porque objet no conoce el atributo name
+/*Mi explicaci√≥n:
+ * No hay m√°s la E es correcta porque la clase Objet no conoce el atributo name
  * */

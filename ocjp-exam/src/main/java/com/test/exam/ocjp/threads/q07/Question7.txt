@@ -64,28 +64,28 @@ Truco 1.
 "must own the lock on the thread"- debe tener su propio lock/monitor en el Thread 
 "must own the lock on the object"- debe tener su propio lock/monitor en el Objeto
 
-Esto es importante ya que por la traducciÛn puede confundir pero uno se refiere al tjread actual
+Esto es importante ya que por la traducci√≥n puede confundir pero uno se refiere al thread actual
 y otro al objeto actual
 
 Ahora analizaremos cada una de las opciones
 
 B es incorrecto porque nos dice "To call wait(), an object must own the lock on the thread"
-  y en base a la traducciÛn que puse arriba wait no tiene su propio lock en el thread sino mas bien en el objeto
-  que lo est· invocando.
+  y en base a la traducci√≥n que puse arriba wait no tiene su propio lock en el thread sino mas bien en el objeto
+  que lo est√° invocando.
   
-C es incorrecto esta est· f·cil ya que el mÈtodo notify est· definido en la clase Object, no en la de Thread.
+C es incorrecto  est√°  f√°cil ya que el m√©todo notify est√° definido en la clase Object, no en la de Thread.
 
-E es incorrecto porque notify no causa que un thread libere su monitor/lock, la ˙nica manera de que
+E es incorrecto porque notify no causa que un thread libere su monitor/lock, la √∫nica manera de que
 	un thread puede liberar su lock/monitor es cuando se sale de un bloque synchronized
 
-F. es incorrecto y tiene truco de traducciÛn tambien, ya que nos indica que notifyAll notifica a todos
+F. es incorrecto y tiene truco de traducci√≥n tambien, ya que nos indica que notifyAll notifica a todos
 	los threads que esten esperando, idependientemente del objeto que esta esperando. Pero esto es alrevez
 	ya que notifyAll notifica a todos los threads que esten esperando el lock de un monitor. No todos
-	los threads esperan la notificaciÛn de todos los objetos, solo del que tienen el lock.
+	los threads esperan la notificaci√≥n de todos los objetos, solo del que tienen el lock.
 	
 A es la respuesta correcta ya que notify notifyAll y wait deben ser invocados en un contesto
 	Synchronized 
 
-D tambiÈn es una afirmaciÛn correcta cuando se invoca a wait y este onjeto tiene ocupado su lock
+D tambi√©n es una afirmaci√≥n correcta cuando se invoca a wait y este onjeto tiene ocupado su lock
 	al ejecutar wait este libera el lock para que otro thread lo tome.
 

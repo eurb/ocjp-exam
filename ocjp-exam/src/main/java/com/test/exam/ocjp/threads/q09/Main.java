@@ -35,19 +35,19 @@ Answer:
 */
 
 /*
- * Mi explicación:
- * 	Esta tiene truco, ya que si vemos el método main tiene dentro una instruccion t.wait, recordemos que
- *  wait se usa para threds sincronizados, ahora vemos que el método main lo ponen como
+ * Mi explicaciÃ³n:
+ * 	Esta tiene truco, ya que si vemos el mÃ©todo main tiene dentro una instrucciÃ³n t.wait, recordemos que
+ *  wait se usa para threds sincronizados, ahora vemos que el mÃ©todo main lo ponen como
  *  synchronized es raro pero si se puede y al ponerlo asi entonces se cumple que no marque
- *  error el método wait ya que main está sincronizado, ademas con wait
+ *  error el mÃ©todo wait ya que main estÃ¡ sincronizado, ademas con wait
  *  nos obliga a atrapar o lanzar un InterruptedException lo cual main si lo hace.
- *  En otras palabras este código compila chido.
+ *  En otras palabras este cÃ³digo compila chido.
  *  Ahora aqui viene el truco cuando main ejecuta t.wait() lanza un IllegalMonitorStateException,
- *  esto es porque aunque el método esta siendo sincronizado el lock o monitor no esta en t sino en 
- *  el método main por lo tanto el lock de t.wait no esta sincronizado osease el objeto t
- *  por eso nos lanza la exepción lo cual es confuso ya que se podria pensar que si se sincronizo
- *  el método todo en su inyerior esta sincronizado pro no es asi el método si esta protegido por fuera
+ *  esto es porque aunque el mï¿½todo esta siendo sincronizado el lock o monitor no esta en t sino en 
+ *  el mÃ©todo main por lo tanto el lock de t.wait no esta sincronizado osease el objeto t
+ *  por eso nos lanza la exepciÃ³n lo cual es confuso ya que se podria pensar que si se sincronizo
+ *  el mÃ©todo todo en su inyerior esta sincronizado pero no es asi el mÃ©todo si esta protegido por fuera
  *  para que otros threads no accedan al mismo tiempo pero ya dentro del metodo t debe ser sincronizada.
  *  
- *  Si t fuera synchronized entonces la resouesta sería D, que es la que seleccionas si te vas con la finta.
+ *  Si t fuera synchronized entonces la resouesta serÃ­a D, que es la que seleccionas si te vas con la finta.
  * */

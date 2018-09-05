@@ -88,11 +88,13 @@ type. The superclass doesn't have everything the subclass has. E uses incorrect 
 
 
 /*
- * Mi explicaci髇:
+ * Mi explicaci贸n:
  * 
- *  B es correcta porque define una clase an髇ima sin nada en su cuerpo.
- *  C tambi閚 es correcta porque define una clase an髇ima y dentro empieza a declarar c骴igo en este caso solo declara unavariable String s.
+ *  B es correcta porque define una clase an贸nima sin nada en su cuerpo.
+ *  C tambi茅n es correcta porque define una clase an贸nima y dentro empieza a declarar  
+ *  c贸digo en este caso solo declara unavariable String s.
  *  
- *  A es incorrecta porque cuando trata de crear la clase an髇ima le pasa a su constructor un int. pero esta clase solo recibe un contrcutor pode default o con un String
+ *  A es incorrecta porque cuando trata de crear la clase an贸nima le pasa a su constructor 
+ *  un int. pero esta clase solo recibe un constructor por default o con un String
  *  D y E es incorrecto ya que la sintaxis no me cuadra con lo que comentan en el ebook.
 */

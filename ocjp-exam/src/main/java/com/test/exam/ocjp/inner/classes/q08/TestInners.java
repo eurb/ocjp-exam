@@ -71,14 +71,16 @@ package com.test.exam.ocjp.inner.classes.q08;
 	
 	A, B, D, and E are incorrect based on the above. (Objective 1.1)*/
  
- /*Mi explicación:
+ /*Mi explicaciÃ³n:
   * Siempre va a tomar la del scope mas cercano por ejemplo
-  * en la linea 11 que es donde se manda llamar al método m, se pensaría que la respuesta
-  * correcta es A pero no es asi porque esta se declara despues de que m fue invocado.
+  * en la linea 11 que es donde se manda llamar al mÃ©todo m, 
+  * se pensarÃ­a que la respuesta correcta es A pero no es asi 
+  * porque esta se declara despues de que m fue invocado.
   * 
-  * Se puede pensar que la respuesta es B pero tampoco ya que esta esta declarada fuera de la clase
-  * por lo tanto tiene un scope mas grande
+  * Se puede pensar que la respuesta es B pero tampoco ya que esta 
+  * esta declarada fuera de la clase por lo tanto tiene un scope 
+  * mas grande
   * 
-  * La correcta es C ya que esta tiene el scope mas cercano a de outer por lo que esta es la correcta
-  * las otras no lo son.
+  * La correcta es C ya que esta tiene el scope mas cercano a de 
+  * outer por lo que esta es la correcta las otras no lo son.
   * */

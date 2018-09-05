@@ -86,25 +86,25 @@ public class ChicksYack implements Runnable {
  */
 
 /**
- * Aqui el truco est· en que cuando se manda a llamar go desde main, dentro de go
- * inicializa la variable c. y este el el show, ya que confunde porque parece ser que si la est· inicialnizando
+ * Aqui el truco estÔøΩ en que cuando se manda a llamar go desde main, dentro de go
+ * inicializa la variable c. y este es el show, ya que confunde porque parece ser que si la est√° inicialnizando
  * entonces despues ya crea 2 threads al vuelo y los inicializa por lo que los pone en estado de "preparado"
- * listos para que el sheduler los ejecute, una vez que los ejecute entr· al mÈtodo run(), sin embargo c es null
- * ya que si se inicializo en go, pero eso el objeto del thread actual osease main, los otros 2 threads no la han inicializado
+ * listos para que el sheduler los ejecute, una vez que los ejecute entr√° al m√©todo run(), sin embargo c es null
+ * ya que si se inicializo en go, pero eso wa del objeto del thread actual osease main, los otros 2 threads no la han inicializado
  * Y por lo tanto viene null.
  */
 
 /**
- * Mi explicaciÛn:
+ * Mi explicaci√≥n:
  * 
  * Correcta:
  * 	F. An exception is thrown at runtime
  *  Lanza un NullPointerExcpetion ya que como mencione cada hilo tiene sus propios objetos y c no fue inicialiada en ambos threads
  *  Si que lo fue en el thread main pero no en estos. De modo que si a la variable c la ponemos static, entonces aqui el show cambia
  *  ya que cuando main manda llamar a go se inicializa y cuando algo es static pues es compartido por todas las clases
- *  y entonces si ya cada thread conoce a c y no es null, por lo que si fuer· asÌ las respyestas serÌan  C y E, ya que entraian los 2 threads
- *  a ejecutar el mÈtodo yack uno despues del otro porque son sincronizadosl
- *  Por otro lado tenemos que dentro de yack hay un Thread.yield(); esto ocaciona que un thread espere su ejecuciÛn y le da prioridad a uno
+ *  y entonces si ya cada thread conoce a c y no es null, por lo que si fuer√° as√≠ las respuestas ser√≠an  C y E, ya que entraian los 2 threads
+ *  a ejecutar el m√©todo yack uno despues del otro porque son sincronizados
+ *  Por otro lado tenemos que dentro de yack hay un Thread.yield(); esto ocaciona que un thread espere su ejecuci√≥n y le da prioridad a uno
  *  con una una priporidad mas alta sin embargo esto no es garantia de que pase, lo que si es garantia es que como es synchronized
- *  es segur oque ejecute uno thread y despues el otro poniendo como id el ejemplo 4 4 2 2 y 2 2 4 4
+ *  es seguro que ejecute un thread y despues el otro poniendo como id el ejemplo 4 4 2 2 y 2 2 4 4
  */

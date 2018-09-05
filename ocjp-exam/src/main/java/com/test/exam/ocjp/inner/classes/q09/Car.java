@@ -65,7 +65,7 @@ public class Car {
 
 /*
  * Answer:
-	C and G are correct. C is the correct syntax to access an inner class’s outer instance
+	C and G are correct. C is the correct syntax to access an inner class outer instance
 	method from an initialization block, and G is the correct syntax to access it from a constructor.
 	
 	A, B, D, E, and F are incorrect based on the above. (Objectives 1.1, 1.4)

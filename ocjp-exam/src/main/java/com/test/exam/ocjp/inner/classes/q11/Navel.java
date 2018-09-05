@@ -66,7 +66,8 @@ What is the result?
 
 /*
 Answer:
-	B is correct. The inner class Gazer has access to Navel's private static and private instance variables.
+	B is correct. The inner class Gazer has access to Navel's private 
+	static and private instance variables.
 	
 	A, C, D, E, and F are incorrect based on the above. (Objectives 1.1, 1.4)
 */

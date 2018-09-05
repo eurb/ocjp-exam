@@ -66,16 +66,16 @@ public class Leader implements Runnable {
 */
 
 /*
- * En esta es mas que obvio el método join() no declara o lanza la excepción verificada y por
- * eso da un error de sompilación.
+ * En esta es mas que obvio el mÃ©todo join() no declara o lanza la excepciÃ³n verificada y por
+ * eso da un error de compilaciÃ³n.
  * 
- * Por otro lado en caso de que si fuera decalrada la excpeción las respuestas serían B y D.
- * B. The output could be r1 r2 m1 m2. Esta si e porque primero se ejecuta el run() imprimiendo
+ * Por otro lado en caso de que si fuera decalrada la excepciÃ³n las respuestas serÃ­an B y D.
+ * B. The output could be r1 r2 m1 m2. Esta si es porque primero se ejecuta el run() imprimiendo
  * r1 y r2, despues entra en main e imprime m1 , hasta este punto el thread t ya termino
  * por lo que no funciona el Join entonces al final imprime m2.
  * 
  * D. The output could be m1 r1 r2 m2. El otro caso correcto es porque entra el el main e 
- * imrime m1 antes de que el Thread 1 sea incializado, una vez inicializdo el Thread
+ * imrime m1 antes de que el Thread 1 sea inicializado, una vez inicializdo el Thread
  * se usa la instruccion t.join() para obligar que a que main se pause hasta que t termine 
  * esto es que entonces t va a immprimir r1 r2, despues main reanuda e imprime m2.
 */

@@ -101,7 +101,7 @@ public abstract class AbstractTest {
 	B, C, D, and E are incorrect based on the program logic described above.
 */
 
-/*Mi explicación
+/*Mi explicaciÃ³n
  * Esta esta chida porque explican bien como y donde definir clases internas abstractas
  * solo hay que aprenderse la sintaxis pero todo es muy claro
  * */

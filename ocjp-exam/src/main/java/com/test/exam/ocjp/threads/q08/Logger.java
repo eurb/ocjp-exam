@@ -66,26 +66,32 @@ public class Logger {
 
 /*
  * Answer:
-	E is correct. Synchronizing the public methods is sufficient to make this safe, so F is false. This class is not thread-safe unless some sort of synchronization protects the changing data.
+	E is correct. Synchronizing the public methods is sufficient to make this safe, 
+	so F is false. This class is not thread-safe unless some sort of synchronization 
+	protects the changing data.
 	
-	B is not correct because although a StringBuffer is synchonized internally, we call
-	append() multiple times, and nothing would prevent two simultaneous log() calls from mixing up their messages. C and D are not correct because if one method remains unsynchronized, it can run while the other is executing, which could result in reading the contents while one of the messages is incomplete, or worse. (You don't want to call getString() on
+	B is not correct because although a StringBuffer is synchonized internally, 
+	we call append() multiple times, and nothing would prevent two simultaneous log() 
+	calls from mixing up their messages. C and D are not correct because if one method 
+	remains unsynchronized, it can run while the other is executing, which could result 
+	in reading the contents while one of the messages is incomplete, 
+	or worse. (You don't want to call getString() on
 	the StringBuffer as it's resizing its internal character array.) (Objective 4.3)
  * */
 
 
 /*
- * Mi explicación:
+ * Mi explicaciÃ³n:
  * 
  * En un prinicpio se puede pensar que la correcta es la B. pensando que convieriendo el StringBuilder
  * a StringBuffer serpa suficiente, sin emabargo StringBuffer si es synchronized de forma interna, pero
- * nada nos garantiza que múltiples Threads invoquen al mpetodo append al mismo tiempo, por lo que
- * esta opción no es la correcta.
+ * nada nos garantiza que mï¿½ltiples Threads invoquen al mpetodo append al mismo tiempo, por lo que
+ * esta opciÃ³n no es la correcta.
  * 
- * Sincronizando los métodos públicos es suficiente para que sea thread safe, asi que la opción F es falsa
- * ya que si se puede hacer thread safe a estos métodos.
+ * Sincronizando los mÃ©todos pÃºblicos es suficiente para que sea thread safe, asi que la opciÃ³n F es falsa
+ * ya que si se puede hacer thread safe a estos mÃ©todos.
  * 
- * Finalemnte la C y la D no son correctas ya que ambos métodos deben ser sincronizados ya que si solo
- * ponemos un solo método sibcronnizado entonces caemos en lo mismo una esta a salvo y el otro no
+ * Finalemnte la C y la D no son correctas ya que ambos mÃ©todos deben ser sincronizados ya que si solo
+ * ponemos un solo mï¿½todo sincronnizado entonces caemos en lo mismo una esta a salvo y el otro no
  * por lo que ambos deben ser synchronized, entonces la respuesta correcta es E.
  * */

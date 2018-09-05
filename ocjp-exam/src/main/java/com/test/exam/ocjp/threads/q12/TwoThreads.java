@@ -102,13 +102,13 @@ public class TwoThreads {
  *Answer:
  *
  *Correct:
- *A, C, D, E, and F are correct. This may look like laurel and hardy are battling to cause the other to sleep() or wait()梑ut that's 
+ *A, C, D, E, and F are correct. This may look like laurel and hardy are battling to cause the other to sleep() or wait()锟絙ut that's 
  *not the case. Since sleep() is a static method, it affects the current thread, which is laurel 
  *(even though the method is invoked using a reference to hardy). That's misleading but perfectly legal, 
- *and the Thread laurel is able to sleep with no exception, printing A and C (after a 1-second delay). Meanwhile hardy tries to call laurel.wait()梑ut hardy
+ *and the Thread laurel is able to sleep with no exception, printing A and C (after a 1-second delay). Meanwhile hardy tries to call laurel.wait()锟絙ut hardy
  * has not synchronized on laurel, so calling laurel.wait() immediately causes an IllegalMonitorStateException, and so hardy prints D, E, and F. 
  * Although the order of the output is somewhat indeterminate (we have no way of knowing whether A is printed before D, for example) 
- * it is guaranteed that A, C, D, E, and F will all be printed in some order, eventually梥o G is incorrect.
+ * it is guaranteed that A, C, D, E, and F will all be printed in some order, eventually锟絪o G is incorrect.
  * 
  * Incorrect:
  * B, G, and H are incorrect based on the above. (Objective 4.4)
@@ -117,24 +117,24 @@ public class TwoThreads {
 
 /*
  * Aqui el truco es ver bien como laurel y hardy son dos objetos diferentes y son threads que se colocan en estado de preparado para despues
- * ser ejecutados por el sheduler, pero bueno el truco es que en el m閠odo run() del objeto heardy al momento de invocar laurel.wait(); nos truena
- * y manda excepci髇 por lo que entra al catch e impirme 'E' el m閠odo wait recordemos que wait, notify y notifyAll se usan en bloues sincronizados.
- * Adem醩 la isntrucci髇 laurel.wait(); si hace refrencia a laurel ya que no es static, si queremos corregir esto entonces sybcronizamos esta instrucci髇
- * y al hacerlo ya no imrprimira 'E' porque ya no entrar韆 al catch.
+ * ser ejecutados por el sheduler, pero bueno el truco es que en el m茅todo run() del objeto heardy al momento de invocar laurel.wait(); nos truena
+ * y manda excepci贸n por lo que entra al catch e impirme 'E' el m茅todo wait recordemos que wait, notify y notifyAll se usan en bloues sincronizados.
+ * Adem谩s la isntrucci贸n laurel.wait(); si hace refrencia a laurel ya que no es static, si queremos corregir esto entonces sincronizamos esta instrucci贸n
+ * y al hacerlo ya no imrprimira 'E' porque ya no entrar谩 al catch.
  * 
- * Esto nos lleva a el m閠odo run de laurel lo anterior fue para hardy...ahora es l turno de laurel, hay que prestar atencipon en la instrucci髇 hardy.sleep(1000);
- * esta linea pareciera que esta usando la referencia a hardy pero como sleep es static realemnte se esta refirendo al objeto actual en este caso a laurel
- * este truco es muy confuso y parece raro pero no hace refrencia a hardy sino a laurel porque static entonces ahi pone a dormir por  1s a laurel, no a hardy
+ * Esto nos lleva a el m茅todo run de laurel lo anterior fue para hardy...ahora es l turno de laurel, hay que prestar atenci贸n en la instrucci贸n hardy.sleep(1000);
+ * esta linea pareciera que esta usando la referencia a hardy pero como sleep es static realmente se esta refiriendo al objeto actual en este caso a laurel
+ * este truco es muy confuso y parece raro pero no hace refrencia a hardy sino a laurel porque es static entonces ahi pone a dormir por  1s a laurel, no a hardy
  * 
 */
 
 /**
- * Mi explicaci髇:
+ * Mi explicaci贸n:
  * 
  * Correcta:
  * 	A, C, D, E, and F
- *  Esas letras aparecen eventualemnte debido a la explicaci髇 anterior no hay que olvidarse de cuando se usa synchonized ya que solo es para wait,notify y notifyAll
- *  En este caso si sincornizamos laurel.wait(); le estamos diciendo que nos de el monitor del objeto laurel y se espere a que alguien (hardy tal vez) le notifique que ya puede
+ *  Esas letras aparecen eventualemnte debido a la explicaci贸n anterior no hay que olvidarse de cuando se usa synchronized ya que solo es para wait,notify y notifyAll
+ *  En este caso si sincronizamos laurel.wait(); le estamos diciendo que nos de el monitor del objeto laurel y se espere a que alguien (hardy tal vez) le notifique que ya puede
  *  continuar.
  *  
  *  Incorrecta:

@@ -83,20 +83,21 @@ Answer:
 	statement that doesn't end until line 7, and a statement needs a closing semicolon!
 
 	A, B, C, D, E, and F are incorrect based on the program logic described above. If the
-	semicolon were added at line 7, then answer B would be correct梩he program would
+	semicolon were added at line 7, then answer B would be correct锟絫he program would
 	print true, the return from the equals() method overridden by the anonymous
 	subclass of Object.
 */
 
 
 
-/*Mi explicaci髇:
+/*Mi explicaci贸n:
  * 
- * Esto puede ser enga駉so a simple viste parece que todo esta bien y la respuesta parece ser que es la B
- * Sin embargo como se observa le falto el ; a la declaraci髇 de la clase an髇ima
+ * Esto puede ser enga帽oso a simple vista parece que todo esta bien y la respuesta 
+ * parece ser que es la B Sin embargo como se observa le falto el ; 
+ * a la declaraci贸n de la clase an贸nima
  * 
- * La respues es G. Compilation fails because of an error on a line other than 3, 4, or 8
- * Hay que traducir bien ya que othe than es "que no sea" osease que la compilaci髇 falla porque
- * hay un error en las lineas que no sean 3, 4 ,8
+ * La respuesta es G. Compilation fails because of an error on a line other than 
+ * 3, 4, or 8 Hay que traducir bien ya que other than es "que no sea" osease 
+ * que la compilaci贸n falla porque hay un error en las lineas que no sean 3, 4 ,8
  * 
  * */

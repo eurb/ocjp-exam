@@ -84,17 +84,17 @@ public class TestThreads {
 
 
 /*
- * Mi explicaciÛn:
+ * Mi explicaci√≥n:
  * 	Para emepzar vemos que la clase MyThread tiene un contructor, y sabemos que si se crea
  *  un objeto de esta clase se imprimira MyThread. Vemos tambien que esa clase hereda de Thread
- *  y vemos que sobreescribe el mÈtodo run() pero tambien lo sobrecarga run(String s).
- *  Cuando se sobre carga el mÈtodo run el sheduler no lo pela, sheduler siempre tomar·
- *  el mÈtodo sobreescrito con la firma publi void run().
+ *  y vemos que sobreescribe el m√©todo run() pero tambien lo sobrecarga run(String s).
+ *  Cuando se sobre carga el m√©todo run el sheduler no lo pela, el sheduler siempre tomar√°
+ *  el m√©todo sobreescrito con la firma public void run().
  *  
- *  Despues en el main se crea un objeto t que dentro tiene una clase anÛnima de MyThread y nuevamente
- *  sobre escribe el mÈtodo run. Despues se inicia el Thread con start().
+ *  Despues en el main se crea un objeto t que dentro tiene una clase an√≥nima de MyThread y nuevamente
+ *  sobre escribe el m√©todo run. Despues se inicia el Thread con start().
  *  
- *  Al crearse el objeto Thread t = new MyThread() { se invoca el contecutor de MyThread() e imprime MyThread
- *  Despues se ejecuta el mÈtodo run sobreescrito en la clase anÛnima e imprime foo, por lo
+ *  Al crearse el objeto Thread t = new MyThread() { se invoca el constructor de MyThread() e imprime MyThread
+ *  Despues se ejecuta el m√©todo run sobreescrito en la clase an√≥nima e imprime foo, por lo
  *  tanto la respuesta correcta es MyTjhread foo que el inciso B.
  * */

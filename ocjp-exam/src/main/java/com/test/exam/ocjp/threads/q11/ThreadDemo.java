@@ -112,40 +112,40 @@ public class ThreadDemo {
 /**
  * 
  * El truco aqui es ver bien que x e y son dos refrencias diferentes por lo tanto cada
- * una tendrá su propios métodos. Sin embargo el método  static synchronized void b() tiene
+ * una tendrÃ¡ su propios mÃ©todos. Sin embargo el mÃ©todo  static synchronized void b() tiene
  * el truco ya que es static, lo cual quiere decir que al momento que lo invoquen ya sea una 
- * refrencia o la otra, obtendrá el monitor o lock completo de toda la clase ya que es compartido (static)
- * mientras que el método synchronized void a() no es static y no es compartido por lo que las 2 refrencias
- * pueden invocar directo a este método ya que son 2 refrencias distintas ejemplo:
+ * referencia o la otra, obtendrÃ¡ el monitor o lock completo de toda la clase ya que es compartido (static)
+ * mientras que el mÃ©todo synchronized void a() no es static y no es compartido por lo que las 2 referencias
+ * pueden invocar directo a este mÃ©todo ya que son 2 refrencias distintas ejemplo:
  * x.a() in thread1, and y.a() in thread2 pueden aparecer al mismo tiempo y segun la pregunta
  * solo debemos seleccionar las que no aparecen al mismo tiempo.
  * 
- * Las respuestas correctasy la explicación se muestra abajo.
+ * Las respuestas correctas y la explicaciÃ³n se muestra abajo.
  * 
- * Otra cosa es ver como actuBusy es static y puede ser invocado por métodos no-static, pero deontro de un static no podemos
- * referinos algo non-static. En este sentido todo este ok ya que de métodos que son staic nunca hacemos referencia a algo no static
- * Debemos tener cuidado en eso y recordad que lo static se carga en tiempo de compilación.
+ * Otra cosa es ver como actBusy es static y puede ser invocado por mÃ©todos no-static, pero deontro de un static no podemos
+ * referirnos a algo non-static. En este sentido todo esta ok ya que los mÃ©todos que son staic nunca hacemos referencia a algo no static
+ * Debemos tener cuidado en eso y recordar que lo static se carga en tiempo de compilaciÃ³n.
  * 
  * Otra cosa es ver como x e y son declaradoas como final, esto es que esos objetos ya no pueden apuntar a otros objetos es como
- * las constantes pero para objetos, estos últimos puntos es solo para recordas conceptos
+ * las constantes pero para objetos, estos Ãºltimos puntos es solo para recordas conceptos
  */
 
 
 /**
- * Mi explicación:
+ * Mi explicaciÃ³n:
  * 
  * Correctas:
  * A. x.a() in thread1, and x.a() in thread2 
  * 	es correcta porque las dos se refieren a 'x' tanto el thread1 como el thread2,
- *  y como el método es synchrobnized pues nunca pueden aparecer juntas
+ *  y como el mÃ©todo es synchronized pues nunca pueden aparecer juntas
  *  
  * F. x.b() in thread1, and x.b() in thread2
- *  como en la anterior usan la misma refrencia 'x' tratando de invocar al método static synchronized b, pero como vimos
- *  un método static synchronized adquieire todo el lock o monitor del objeto y con el simple hecho de que este método
- *  es synchro y refrerise al mismo objeto 'x' ya no podrían aparecer juntas por eso esta opción es correcta
+ *  como en la anterior usan la misma refrencia 'x' tratando de invocar al mÃ©todo static synchronized b, pero como vimos
+ *  un mÃ©todo static synchronized adquiere todo el lock o monitor del objeto y con el simple hecho de que este mÃ©todo
+ *  es synchronized y referirse al mismo objeto 'x' ya no podrÃ¡n aparecer juntas por eso esta opciÃ³n es correcta
  *  
  * H. x.b() in thread1, and y.b() in thread2
- * 	Esta es una de las confusas y es la del truco, ya que como se puede ver se refieren al mismo método b pero son diferentes
- *  referencias una es 'x' y otra es 'y', sin embargo dada la explicación de que un método static adqueire el lock de toda la clase
+ * 	Esta es una de las confusas y es la del truco, ya que como se puede ver se refieren al mismo mÃ©todo b pero son diferentes
+ *  referencias una es 'x' y otra es 'y', sin embargo dada la explicaciÃ³n de que un mÃ©todo static adquiere el lock de toda la clase
  *  pues este tampoco nunca va aparecer al mismo tiempo ya que o lo usa x o lo usa y pero no ambas
  */

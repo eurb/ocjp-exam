@@ -87,4 +87,4 @@ class Test {
 	C is incorrect. The sleep() method is static, it always affects the currently executing thread. (Objective 4.2)
 */
 
-//Mi explicación: No hay mas esta claro
+//Mi explicaciÃ³n: No hay mas esta claro

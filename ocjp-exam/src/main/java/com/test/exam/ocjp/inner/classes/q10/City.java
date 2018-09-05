@@ -74,8 +74,8 @@ public class City {
  */
 
 /*
- * Mi explicaciÛn:
- * AquÌ el truco esta en no confundires con que hay 2 clases internas y una hereda de la otra
- * esa sintaxis es v·lida y si lo hereda pero la que se manda llamar es la subclase
- * y esa asu vez sobreescribe el mÈtodo lo cual la respuesta es C.
+ * Mi explicaci√≥n:
+ * Aqu√≠ el truco esta en no confundires con que hay 2 clases internas y una hereda de la otra
+ * esa sintaxis es v√°lida y si lo hereda pero la que se manda llamar es la subclase
+ * y esa asu vez sobreescribe el m√©todo lo cual la respuesta es C.
  */
