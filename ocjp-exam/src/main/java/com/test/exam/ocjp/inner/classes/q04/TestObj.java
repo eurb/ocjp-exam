@@ -83,7 +83,7 @@ Answer:
 	statement that doesn't end until line 7, and a statement needs a closing semicolon!
 
 	A, B, C, D, E, and F are incorrect based on the program logic described above. If the
-	semicolon were added at line 7, then answer B would be correct�the program would
+	semicolon were added at line 7, then answer B would be correct the program would
 	print true, the return from the equals() method overridden by the anonymous
 	subclass of Object.
 */
