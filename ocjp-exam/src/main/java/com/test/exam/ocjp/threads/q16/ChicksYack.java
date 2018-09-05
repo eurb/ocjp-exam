@@ -86,7 +86,7 @@ public class ChicksYack implements Runnable {
  */
 
 /**
- * Aqui el truco est� en que cuando se manda a llamar go desde main, dentro de go
+ * Aqui el truco está en que cuando se manda a llamar go desde main, dentro de go
  * inicializa la variable c. y este es el show, ya que confunde porque parece ser que si la está inicialnizando
  * entonces despues ya crea 2 threads al vuelo y los inicializa por lo que los pone en estado de "preparado"
  * listos para que el sheduler los ejecute, una vez que los ejecute entrá al método run(), sin embargo c es null
