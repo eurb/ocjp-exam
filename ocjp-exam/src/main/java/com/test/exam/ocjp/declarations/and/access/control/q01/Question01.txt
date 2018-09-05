@@ -1,0 +1,68 @@
+1. Which is true? (Choose all that apply.)
+A. "X extends Y" is correct if and only if X is a class and Y is an interface
+B. "X extends Y" is correct if and only if X is an interface and Y is a class
+C. "X extends Y" is correct if X and Y are either both classes or both interfaces
+D. "X extends Y" is correct for all combinations of X and Y being classes and/or interfaces
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+	C is correct.
+	A is incorrect because classes implement interfaces, they don't extend them. 	
+	B is incorrect because interfaces only "inherit from" other interfaces. 
+	D is incorrect based on the preceding rules. (Objective 1.2)
+
+Mi explicación:
+	No hay mas explicación, todo está ok

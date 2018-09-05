@@ -1,0 +1,68 @@
+Which method names follow the JavaBeans standard? (Choose all that apply.)
+A. addSize
+B. getCust
+C. deleteRep
+D. isColorado
+E. putDimensions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+	B and D use the valid prefixes 'get' and 'is'.
+	A is incorrect because �'add' can be used only with Listener methods. 
+	C and E are incorrect because 'delete' and 'put' are not standard 
+		JavaBeans name prefixes. (Objective 1.4)
