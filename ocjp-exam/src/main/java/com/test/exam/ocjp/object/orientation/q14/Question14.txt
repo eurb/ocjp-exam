@@ -1,0 +1,89 @@
+You’re designing a new online board game in which 
+Floozels are a type of Jammers, Jammers can have Quizels, 
+Quizels are a type of Klakker, and Floozels can have several 
+Floozets. Which of the following fragments represent this design? 
+(Choose all that apply.)
+
+A. 	import java.util.*;
+	interface Klakker { }
+	class Jammer { Set<Quizel> q; }
+	class Quizel implements Klakker { }
+	public class Floozel extends Jammer { List<Floozet> f; }
+	interface Floozet { }
+B. 	import java.util.*;
+	class Klakker { Set<Quizel> q; }
+	class Quizel extends Klakker { }
+	class Jammer { List<Floozel> f; }
+	class Floozet extends Floozel { }
+	public class Floozel { Set<Klakker> k; }
+C. 	import java.util.*;
+	class Floozet { }
+	class Quizel implements Klakker { }
+	class Jammer { List<Quizel> q; }
+	interface Klakker { }
+	class Floozel extends Jammer { List<Floozet> f; }
+D. 	import java.util.*;
+	interface Jammer extends Quizel { }
+	interface Klakker { }
+	interface Quizel extends Klakker { }
+	interface Floozel extends Jammer, Floozet { }
+	interface Floozet { }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Answer:
+A and C are correct. The phrase "type of" indicates an "is-a" 
+relationship (extends or implements), and the phrase “have” 
+is of course a "has-a" relationship (usually instance variables).
+B and D are incorrect based on the above information.
+(Objective 5.5)
+
+Para esto hay qeu diagramar las clases con calma con uml 
+y ver lo que se pide, el truco es que cada objeto
+es un clase y pueden tener otros objetos
+o listas de objetos

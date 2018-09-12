@@ -1,0 +1,107 @@
+Given:
+	public abstract interface Frobnicate { public void twiddle(String s); }
+Which is a correct class? (Choose all that apply.)
+A. public abstract class Frob implements Frobnicate {
+		public abstract void twiddle(String s) { }
+	}
+B. public abstract class Frob implements Frobnicate { }
+C. public class Frob extends Frobnicate {
+ 		public void twiddle(Integer i) { }
+	}
+D. public class Frob implements Frobnicate {
+		public void twiddle(Integer i) { }
+	}
+E. public class Frob implements Frobnicate {
+		public void twiddle(String i) { }
+		public void twiddle(Integer s) { }
+	}
+
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Answer:
+	B is correct, an abstract class need not implement any or all of an interface’s methods.
+	E is correct, the class implements the interface method and additionally overloads the twiddle() method.
+	A is incorrect because abstract methods have no body. 
+	C is incorrect because classes
+		implement interfaces they don’t extend them. 
+	D is incorrect because overloading a method is not implementing it.
+		(Objective 5.4)	
+		
+Esta la tuve bien solo aprenderse que una interfaz puede declararse como abstract aunque ya es implicito además
+debemos aprender que una interfaz hereda de otra y que una clase asbtract puede implelenar una interfaz sin embargo
+puede o no implementar los métodos de la interfaz ya que como es clase asbtract no es necesario que implemente todos
+los métodos de la interfaz... pero la última clase que no sea asbtract esa si debe implemetar todos.
