@@ -1,0 +1,113 @@
+Given:
+1. class Loopy {
+2. 	public static void main(String[] args) {
+3. 		int[] x = {7,6,5,4,3,2,1};
+4. 		// insert code here
+5. 		System.out.print(y + " ");
+6. 	}
+7. } }
+Which, inserted independently at line 4, compiles? (Choose all that apply
+.)
+
+A. for(int y : x) {
+B. for(x : int y) {
+C. int y = 0; for(y : x) {
+D. for(int y=0, z=0; z<x.length; z++) { y = x[z];
+E. for(int y=0, int z=0; z<x.length; z++) { y = x[z];
+F. int y = 0; for(int z=0; z<x.length; z++) { y = x[z];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+A, D, and F are correct. A is an example of the enhanced for loop.
+	 D and F are examples of the basic for loop.
+B is incorrect because its operands are swapped.
+C is incorrect because the enhanced for must declare its 
+	first operand. 
+E is incorrect syntax to declare two variables in a for statement. 
+(Objective 2.2)
+
+
+Mi Respuesta:
+	La tuve bien, solo hay que tener cuidado y leer bien cada
+	instruccion, como dice arriba en un for declaran dos int
+	anteponiendo int int, en otra no ponen el int

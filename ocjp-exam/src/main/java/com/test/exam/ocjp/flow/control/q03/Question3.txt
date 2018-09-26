@@ -1,0 +1,115 @@
+Given:
+	try { int x = Integer.parseInt("two"); }
+Which could be used to create an appropriate catch block? 
+(Choose all that apply.)
+
+A. ClassCastException
+B. IllegalStateException
+C. NumberFormatException
+D. IllegalArgumentException
+E. ExceptionInInitializerError
+F. ArrayIndexOutOfBoundsException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+C and D are correct. Integer.parseInt can throw a 
+	NumberFormatException, and IllegalArgumentException 
+	is its superclass (i.e., a broader exception).
+A, B, E, and F are not in NumberFormatException’s class 
+	hierarchy. (Objective 2.6)
+	
+Mi Respuetsa:
+	La tuve bien porque sabía de antemano que NFE hereda
+	de IllegalArgumentException ya que lo explican en este
+	capitulo, hay una tablita donde viene lo que arroja cada
+	una de las expeciones y en que casos se peuden dar.
+	De las que se muestran en la tablita solo no hay que confundir
+	precisamente IllegalArgumentException con
+	IllegalStateException esta ultima se da como por ejemplo
+	con los Scanner

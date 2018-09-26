@@ -1,0 +1,126 @@
+Given:
+1.   public class Frisbee {
+2.  	// insert code here
+3. 	   int x = 0;
+4. 	   System.out.println(7/x);
+5.	 }
+6. }
+
+
+
+
+And given the following four co
+de fragments:
+I. public static void main(String[] args) {
+II. public static void main(String[] args) throws Exception {
+III. public static void main(String[] args) throws IOException {
+IV. public static void main(String[] args) throws RuntimeException {
+
+
+
+If the four fragments are inserted independently at line 4, which are true? (Choose all that apply.)
+A. All four will compile and execute without exception
+B. All four will compile and execute and throw an exception
+C. Some, but not all, will compile and execute without exception
+D. Some, but not all, will compile and execute and throw an exception
+E. When considering fragments II, III, and IV, of those that will compile, adding a try/catch block around line 6 will cause compilation to fail
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+D is correct. This is kind of sneaky, but remember that we're 
+trying to toughen you up for the real exam. 
+If you're going to throw an IOException, you have to import 
+the java.io package or declare the exception with a fully 
+qualified name.
+E is incorrect because it's okay to both handle and declare an 
+exception. A, B, and C are incorrect based on the above. (Objective 2.4)
+
+
+Mi Respuesta:
+	B y E
+	Todo mal en esta y cai en el engaño, veamos:
+	B no es correcto porque ya que no todos van a compilar y 
+	no lo van hacer porque segun eso no importamos
+	la excpecion IOException de otro modo si hubieran compilado
+	al menos.
+	El E esta mal porque ya se aque si lanzes y/o atrapes pue aun
+	asi todo esta bien sin ebargo aqui creo
+	que no ayuda los numeros de linea y el engish.
+	
+	Lo correcta era la D ya que no todoas compilan 
+	sin embargo todas van a lanzar la excepcion de división por 
+	cero.

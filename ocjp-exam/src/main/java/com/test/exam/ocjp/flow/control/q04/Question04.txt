@@ -1,0 +1,112 @@
+Which are true? (Choose all that apply.)
+A. It is appropriate to use assertions to validate arguments to methods marked public
+B. It is appropriate to catch and handle assertion errors
+C. It is NOT appropriate to use assertions to validate command-line arguments
+D. It is appropriate to use assertions to generate alerts when you reach code that should not be reachable
+E. It is NOT appropriate for assertions to change a program’s state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+C, D, and E are correct statements.
+A is incorrect. It is acceptable to use assertions to test 
+	the arguments of private methods.
+B is incorrect. While assertion errors can be caught, 
+	Sun discourages you from doing so. (Objective 2.3)
+	
+Mi Respuesta:
+	La tuve bien esta es mas de teoria de los assertions,
+	solo recordar que no se deben usar para testear
+	metodos public, para cambiar el estado de un objeto
+	o para validar lineas de comandos.
