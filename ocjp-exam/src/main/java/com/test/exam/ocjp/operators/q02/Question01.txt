@@ -1,0 +1,112 @@
+Given:
+1. class Comp2 {
+2. public static void main(String[] args) {
+3. float f1 = 2.3f;
+4. float[][] f2 = {{42.0f}, {1.7f, 2.3f}, {2.6f, 2.7f}};
+5. float[] f3 = {2.7f};
+6. Long x = 42L;
+7. // insert code here
+8. System.out.println("true");
+9. }
+10. }
+
+
+And the following five co
+de fragments:
+F1. if(f1 == f2)
+F2. if(f1 == f2[2][1])
+F3. if(x == f2[0][0])
+F4. if(f1 == f2[1,1])
+F5. if(f3 == f2[2])
+
+What is true?
+A. One of them will compile, only one will be true
+B. Two of them will compile, only one will be true
+C. Two of them will compile, two will be true
+D. Three of them will compile, only one will be true
+E. Three of them will compile, exactly two will be true
+F. Three of them will compile, exactly three will be true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+D is correct. Fragments F2, F3, and F5 will compile, 
+and only F3 is true.
+A, B, C, E, and F are incorrect. F1 is incorrect because you
+ can’t compare a primitive to an array. 
+ F4 is incorrect syntax to access an element of a 
+ two-dimensional array.
+(Objective 7.6)
+
+
+
+
+
+
+Mi Respuesta
+Me equivque por el F4 ya que la declaracion de un array
+no puede ser de esa manera [4,4] eso esta mal.

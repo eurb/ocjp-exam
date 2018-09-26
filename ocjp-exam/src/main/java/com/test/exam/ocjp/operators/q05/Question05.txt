@@ -1,0 +1,121 @@
+Place the fragments into the code to produce the output 33. 
+Note, you must use each fragment exactly once.
+
+CODE:
+class Incr {
+	public static void main(String[] args) {
+		Integer x = 7;
+		int y = 2;
+		x ___ ___;
+		___ ___ ___;
+		___ ___ ___;
+		___ ___ ___;
+		System.out.println(x);
+	}
+}
+FRAGMENTS:
+
+ ____ ____ ____ ____
+|  y | y  | y  | y  |
+|____|____|____|____|
+| y  | x  | x  |    |
+|____|____|____|____|
+| -= | *= | *= | *= |     
+|____|____|____|____| 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Answer:
+class Incr {
+	public static void main(String[] args) {
+		Integer x = 7;
+		int y = 2;
+		x *= x;
+		y *= y;
+		y *= y;
+		x -= y;
+		System.out.println(x);
+	}
+}
+Yeah, we know it’s kind of puzzle-y, but you might encounter something like it on the real exam.
+(Objective 7.6)
+
+Mi Explicación:
+	No sé que voy hacer está es mas de lógica :S
